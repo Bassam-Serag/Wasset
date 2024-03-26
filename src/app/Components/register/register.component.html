@@ -1,69 +1,4 @@
 
-<!-- <br><br><br><br><br><br><br><br><br><br><br> <br><br><br> <br><br><br><br><br><br>
-<div class="signup__container">
-  <div class="container__child signup__thumbnail">
-      <div class="thumbnail__logo ">
-          <img src="../../../assets/img/logo.png">
-      </div>
-      <div class="thumbnail__content text-center m-auto">
-          <h1 class="heading--primary">Welcome to Wasset</h1>
-      </div>
-      <div class="signup__overlay"></div>
-  </div>
-  <div class="container__child signup__form">
-      <form action="#">
-          <div class="form-group">
-              <label for="username">Username</label>
-              <input class="form-control" type="text" name="username" id="username" placeholder="name" required />
-          </div>
-          <div class="form-group">
-              <label for="email">Email</label>
-              <input class="form-control" type="text" name="email" id="email" placeholder="Enter Email" required />
-          </div>
-          <div class="form-group">
-              <label for="ssn">SSN</label>
-              <input class="form-control" type="text" name="ssn" id="ssn" placeholder="Enter SSN" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">phone</label>
-            <input class="form-control" type="text" name="phone" id="phone" placeholder="Enter phone" required />
-        </div>
-        <div class="form-group">
-            <label for="address">address</label>
-            <input class="form-control" type="text" name="address" id="address" placeholder="Enter Address" required />
-        </div>
-          <div class="form-group " >
-            <label for="userType">User Type</label>
-            <select class="form-control" name="userType" id="userType" required>
-                <option value="homeowner">Homeowner</option>
-                <option value="student">Student</option>
-            </select>
-        </div>
-        
-        
-          <div class="form-group">
-              <label for="password">Password</label>
-              <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
-          </div>
-          <div class="form-group">
-              <label for="passwordRepeat">Repeat Password</label>
-              <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="********" required />
-          </div>
-          <div class="m-t-lg">
-              <button class="btn btn--form" type="submit" value="Register">Register</button>
-              <br>
-              <a class="signup__link"routerLink="/login" routerLinkActive="active">I am already a member ?</a>
-          </div>
-      </form> 
-  </div>
-</div>
-
-<br> <br><br><br><br><br><br><br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br><br>  -->
-
-
-
-
-  
 <br><br><br><br><br><br><br><br><br><br><br> <br><br><br> <br><br><br><br><br><br>
 <div class="signup__container">
   <div class="container__child signup__thumbnail">
@@ -76,21 +11,21 @@
       <div class="signup__overlay"></div>
   </div>
   <div class="container__child signup__form">
-    <div *ngIf="errMsg" class="alert alert-danger">
-        {{errMsg}}
-    </div>
+
 
       <form [formGroup]="register" (ngSubmit)="handleRegister(register)">
-        
+        <div *ngIf="errMsg" class="alert alert-danger">
+          {{errMsg}}
+      </div>
           <div class="form-group">
-              <label for="username">Username</label>
-              <input class="form-control" type="text" name="username" id="username" placeholder="name" required formControlName="name"/>
+              <label for="userName">Username</label>
+              <input class="form-control" type="text" name="userName" id="userName" placeholder="userName" required formControlName="userName"/>
 
-              <div  *ngIf="register.get('name')?.errors && register.get('name')?.touched">
-                <P class="errColor" *ngIf="register.get('name')?.getError('required')">*Name Is Requrired</P>
-                <p class="errColor" *ngIf="register.get('name')?.getError('notString')">*Name must be a string</p>
-                <P class="errColor" *ngIf="register.get('name')?.getError('minlength')">*Name Min lenght is 3</P>
-                <P class="errColor" *ngIf="register.get('name')?.getError('maxlength')">*Name Max lenght is 20</P>
+              <div  *ngIf="register.get('userName')?.errors && register.get('userName')?.touched">
+                <P class="errColor" *ngIf="register.get('userName')?.getError('required')">*Name Is Requrired</P>
+                <p class="errColor" *ngIf="register.get('userName')?.getError('notString')">*Name must be a string</p>
+                <P class="errColor" *ngIf="register.get('userName')?.getError('minlength')">*Name Min lenght is 3</P>
+                <P class="errColor" *ngIf="register.get('userName')?.getError('maxlength')">*Name Max lenght is 20</P>
               </div>
 
             </div>
@@ -128,13 +63,13 @@
         </div>
         <div class="form-group">
             <label for="userType">User Type</label>
-            <select class="form-control" formControlName="type" id="userType" required>
+            <select class="form-control" formControlName="role" id="role" required>
               <option value="" disabled>Select user type</option>
-              <option value="homeowner">Homeowner</option>
-              <option value="student">Student</option>
+              <option value="owner">owner</option>
+              <option value="student">student</option>
             </select>
-            <div *ngIf="register.get('type')?.errors && register.get('type')?.touched">
-              <p class="errColor" *ngIf="register.get('type')?.getError('required')">*User type is required</p>
+            <div *ngIf="register.get('role')?.errors && register.get('role')?.touched">
+              <p class="errColor" *ngIf="register.get('role')?.getError('required')">*User type is required</p>
             </div>
           </div>
           <div class="form-group">
@@ -146,13 +81,13 @@
               </div>
           </div>
           <div class="form-group">
-              <label for="passwordRepeat">Repeat Password</label>
-              <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="********" required formControlName="rePassword" />
+              <label for="confirmPassword">Repeat Password</label>
+              <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="********" required formControlName="confirmPassword" />
           
-              <div *ngIf="register.get('rePassword')?.errors && register.get('rePassword')?.touched">
-              <P class="errColor" *ngIf="register.get('rePassword')?.getError('required')">*rePassword Is Requrired</P>
-              <P class="errColor" *ngIf="register.get('rePassword')?.getError('passwordMatch')">*rePassword not match</P>
-              <P class="errColor" *ngIf="register.get('repassword')?.getError('pattern')">*Invalid rePassword format</P>
+              <div *ngIf="register.get('confirmPassword')?.errors && register.get('confirmPassword')?.touched">
+              <P class="errColor" *ngIf="register.get('confirmPassword')?.getError('required')">*confirmPassword Is Requrired</P>
+              <P class="errColor" *ngIf="register.get('confirmPassword')?.getError('passwordMatch')">*confirmPassword not match</P>
+              <P class="errColor" *ngIf="register.get('confirmPassword')?.getError('pattern')">*Invalid confirmPassword format</P>
             </div>
         </div>
           <div>

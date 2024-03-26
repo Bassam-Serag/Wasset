@@ -34,20 +34,20 @@ export class RegisterComponent
   }
   register : FormGroup = this._FormBuilder.group
   ({
-    name:[null , [Validators.required, this.stringOnlyValidator, Validators.minLength(3),Validators.maxLength(20)]],
-    email:[null , [Validators.required, Validators.email] ],
-    ssn: [null, [Validators.required, Validators.pattern(/^\d{14}$/)]], 
-    type: [null, [Validators.required]],
-    phone:[null , [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)] ],
-    address: [null, [Validators.required]],
+    userName:[null , [Validators.required, this.stringOnlyValidator, Validators.minLength(3),Validators.maxLength(20)]],
     password:[null , [Validators.required, Validators.pattern(/^\w{6,}/)] ],
-    rePassword:[null , [Validators.required, Validators.pattern(/^\w{6,}/)] ]
+    confirmPassword:[null , [Validators.required, Validators.pattern(/^\w{6,}/)] ],
+    email:[null , [Validators.required, Validators.email] ],
+    phone:[null , [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)] ],
+    role: [null, [Validators.required]],
+    ssn: [null, [Validators.required, Validators.pattern(/^\d{14}$/)]], 
+    address: [null, [Validators.required]],
   },{validators:this.rePasswordMatch});
 
   rePasswordMatch(register:any){
   {
    let passwordControl= register.get('password');
-   let rePasswordControl= register.get('rePassword');
+   let rePasswordControl= register.get('confirmPassword');
    if(passwordControl.value===rePasswordControl.value)
    {
     return null;
@@ -82,7 +82,7 @@ export class RegisterComponent
       
     this._AuthService.registerToAPI(register.value).subscribe({
       next: (res) => {
-        // if (res.message === 'success') {
+         //if (res.message === 'success') {
           this.register=res;
           this.isLoading = false;
           Swal.fire({
@@ -93,10 +93,10 @@ export class RegisterComponent
             timer: 1000,
             width: '400px'
           }).then(() => {
-            const userType = register.value.type;
+            const userType = register.value.role;
             if (userType === 'student') {
               this._Router.navigate(['/loginstudent']);
-            } else if (userType === 'homeowner') {
+            } else if (userType === 'owner') {
               this._Router.navigate(['/login']);
             }
           });
@@ -104,11 +104,11 @@ export class RegisterComponent
       },
       error: (err) => {
         this.isLoading = false;
-        if (err.error.message === 'This email has already been used') {
-          this.errMsg = 'This email has already been used';
-        } else {
+        // if (err.error.message === 'This email has already been used') {
+        //   this.errMsg = 'This email has already been used';
+        // } else {
           this.errMsg = err.error.message;
-        }
+        //}
       }
     });
     

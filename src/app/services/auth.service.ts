@@ -31,7 +31,7 @@ export class AuthService {
 
  registerToAPI(userData:any):Observable<any>
  {
-  return this.myClient.post("http://localhost:3000/users",userData);//link_DB_register     return this.myClient.post(`${this.DB_URL}/register`, userData);
+  return this.myClient.post("https://localhost:44301/api/Account/Register",userData);//link_DB_register     return this.myClient.post(`${this.DB_URL}/register`, userData);
 
  }
  
@@ -48,7 +48,7 @@ export class AuthService {
 
  loginFormToAPI(email: string, password: string): Observable<any> {
   const userData = { email, password };
-  return this.myClient.post("http://localhost:3000/login", userData);
+  return this.myClient.post("https://localhost:44301/api/Account/Login", userData);
 }
  logout()
  {
