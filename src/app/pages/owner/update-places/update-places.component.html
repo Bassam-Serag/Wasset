@@ -28,6 +28,28 @@
       </div>
       
      <br>
+     <div class="row">
+      <label for="location" class="col-sm-2 col-form-label">location</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="location" formControlName="location">
+        @if(AddForm.controls.location.invalid){
+          <div class="text-danger">location Not Vaild</div>
+        }
+      </div>
+    </div>
+    
+   <br>
+   <div class="row">
+    <label for="region" class="col-sm-2 col-form-label">region</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="region" formControlName="region">
+      @if(AddForm.controls.region.invalid){
+        <div class="text-danger">region Not Vaild</div>
+      }
+    </div>
+  </div>
+  
+ <br>
 
       <div class="row">
         <label for="price" class="col-sm-2 col-form-label">price</label>

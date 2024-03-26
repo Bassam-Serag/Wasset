@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { Router,RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,6 +27,29 @@ export class HeaderComponent {
     logout(){
         this._AuthService.logout();
     }
+    // ngOnChanges(changes: SimpleChanges): void {
+    //     this._AuthService.userData.subscribe({
+    //         next:(data)=>{
+    //             if(this._AuthService.userData.getValue() !==null){
+    //                 this.isLogin=true;
+    //                 //this.userName = data.name;
+    //             }else{ this.isLogin=false;}//this.userName = '';
+    //         }
+    //     })
+    // }
+
+    
+    // ngOnInit(): void {
+    //     this._AuthService.userData.subscribe({
+    //         next:(data)=>{
+    //             if(this._AuthService.userData.getValue() !==null){
+    //                 this.isLogin=true;
+    //                 //this.userName = data.name;
+    //             }else{ this.isLogin=false;}//this.userName = '';
+    //         }
+    //     })
+        
+    // }
     constructor(private _AuthService:AuthService ,private routerService:Router)
     {
         _AuthService.userData.subscribe({

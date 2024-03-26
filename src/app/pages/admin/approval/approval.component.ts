@@ -63,6 +63,8 @@ this.ownerService.deletePlaces(id).subscribe({
         var objAppart={
           id:res.id,
           description :res.description,
+          location:res.location,
+          region:res.region,
           price :res.price,
           capacity:res.capacity,
           gender: res.gender,

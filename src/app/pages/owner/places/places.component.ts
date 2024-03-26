@@ -87,9 +87,10 @@ export class PlacesComponent implements OnInit{
           capacity:res.capacity,
           gender: res.gender,
           numofroom:res.numofroom,
-          isApproved:res.isApproved,
           phone:res.phone,
           img:res.img,
+
+          isApproved:res.isApproved,
           isRented:true,
           requestRent:res.requestRent
         }

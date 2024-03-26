@@ -13,7 +13,8 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Description</th>
-        <th scope="col">NumberOfRooms</th>
+        <th scope="col">Number Of Rooms</th>
+        <th scope="col">Phone</th>
         <!-- <th scope="col">Image</th> -->
         <th scope="col"></th>
         
@@ -23,7 +24,7 @@
       <tr *ngFor="let app of notApprovedAppartment">
         <th scope="row">{{app.id}}</th>
         <td>{{app.description}}</td>
-        <td>{{app.noOfRooms}}</td>
+        <td>{{app.numofroom}}</td>
         <td>{{app.phone}}</td>
 
         <!-- <td><img [src]="app.img" alt="" width="150px" height="100px"></td> -->

@@ -89,11 +89,11 @@ export class UpdatePlacesComponent {
         numofroom: this.AddForm.controls.numofroom.value,
         phone: this.AddForm.controls.phone.value,
         img:this.AddForm.controls.img.value,
-
+        isRented:false
       };
-  
-      this._PlacesOwnerService.updatePlaces(this.id, newPlace).subscribe(() => {
-        Swal.fire({
+      this._PlacesOwnerService.updatePlaces(this.id, newPlace).subscribe({
+        next:(data)=>{
+             Swal.fire({
           title: "Success!",
           text: "Place added successfully.",
           imageUrl: "https://www.masrtimes.com/UploadCache/libfiles/39/3/600x338o/811.jpg",
@@ -106,7 +106,27 @@ export class UpdatePlacesComponent {
         // });
           this.router.navigate(['/places']);
         });
-      });
+          
+        },
+        error:(err)=>{
+          this.router.navigate(['/error',{errormessage : err.message as string}]);
+        }
+      })
+      // this._PlacesOwnerService.updatePlaces(this.id, newPlace).subscribe(() => {
+      //   Swal.fire({
+      //     title: "Success!",
+      //     text: "Place added successfully.",
+      //     imageUrl: "https://www.masrtimes.com/UploadCache/libfiles/39/3/600x338o/811.jpg",
+      //     imageWidth: 400,
+      //     imageHeight: 300,
+      //     imageAlt: "Custom image"
+      //   }).then(() => { 
+      //   //    this._PlacesOwnerService.getAllPlaces().subscribe((allPlaces) => {
+      //   //   this.Places = allPlaces;
+      //   // });
+      //     this.router.navigate(['/places']);
+      //   });
+      // });
     }
   }
  

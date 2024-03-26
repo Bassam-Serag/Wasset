@@ -91,7 +91,6 @@ export class AddComponent {
         phone:this.AddForm.controls.phone.value ,
         img:this.AddForm.controls.img.value,
         isApproved:false,
-       
         isRented:false,
         requestRent:false
       };
