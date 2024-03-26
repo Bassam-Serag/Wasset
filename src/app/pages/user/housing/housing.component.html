@@ -1,0 +1,69 @@
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Quickly find housing</p>
+                    <h1>Housing</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+
+<!-- products -->
+<div class="product-section mt-150 mb-150">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-filters">
+                    <ul>
+                        <li class="active" data-filter="*">All</li>
+                        <!-- <li data-filter=".Shalaby">Shalaby</li>
+                        <li data-filter=".Shalaby2">Shalaby2</li>
+                        <li data-filter=".Shalaby3">Shalaby3</li> -->
+
+                        <div class="search-bar-tablecell">
+                            <input type="text" placeholder="Male/Female" #ser style="background-color: rgb(96, 96, 117);">
+                        </div>
+                        <a class="mobile-hide search-bar-icon" (click)="onSearch(ser.value)"><i
+                                class="fas fa-search"></i></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row product-lists">
+           
+                  <div class="col-lg-4 col-md-6 text-center Shalaby" *ngFor="let app of appartment ">
+                    <!-- |search'' -->
+                    <div class="single-product-item">
+                        <div class="product-image">
+                          <a (click)="openDetails(app.id)" routerLinkActive="active"><img [src]="app.img" alt=""></a>
+                        </div>
+                        <p class="single-product-price"><span><b>Price: </b>{{ app.price | currency: 'EGP' }}</span></p>
+                        <p class="product-price">{{app.gender}} </p>
+                        <a (click)="openDetails(app.id)" routerLinkActive="active" class="cart-btn m-1"><i class="fas fa-info-circle"></i> View Details</a>
+                        <a href="tel:{{app.phone}}" class="cart-btn"><i class="fas fa-phone"></i>Contact him</a>
+                      </div>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="pagination d-flex justify-content-center mt-5">
+                    <a href="#" class="rounded">&laquo;</a>
+                    <a href="#" class="active rounded">1</a>
+                    <a href="#" class="rounded">2</a>
+                    <a href="#" class="rounded">3</a>
+                    <a href="#" class="rounded">&raquo;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end products -->
+

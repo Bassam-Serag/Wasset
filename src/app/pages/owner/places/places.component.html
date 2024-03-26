@@ -1,0 +1,56 @@
+<br><br><br><br><br><br>
+<div class="container">
+  <table class="table table-hover border-2">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Price</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Num Of rooms</th>
+  
+        <th></th>
+      </tr>
+    </thead> 
+
+       <tbody>
+      <tr *ngFor="let p of Places;" class="table-primary" appChengeColor>
+        <td>{{ p.id }}</td>
+        <td>{{ p.price }}</td>
+        <td>{{ p.gender }}</td>
+        <td>{{ p.numofroom }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-info m-2" [routerLink]="'/places/' + p.id">Details</button>
+          <button type="button" class="btn btn-outline-success m-2" [routerLink]="'/updateplaces/' + p.id">Update</button>
+          <button type="button" class="btn btn-outline-danger m-2" (click)="deleteplaces(p.id)" routerLink="/places">Delete</button>
+          <button *ngIf="p.requestRent" type="button" class="btn btn-outline-secondary m-2" (click)="accept(p.id)">Accept</button>
+        </td>
+      </tr>
+    </tbody>
+
+      <!-- @for (p of Places; track p.id) {
+        <tr class="table-primary" >
+          <td>
+            {{p.id}}
+          </td>
+          <td>
+            {{p.price}}
+          </td>
+          <td>
+            {{p.gender}}
+          </td>
+          <td>
+            {{p.numofroom}}
+          </td>
+          <td>
+           <a class="btn btn-outline-info m-2"  routerLink="/places/{{p.id}}">Details</a>
+            <a class="btn btn-outline-success m-2"  routerLink="/updateplaces/{{p.id}}">Update</a>
+           <a class="btn btn-outline-danger m-2" (click)="deleteplaces(p.id)" routerLink="/places">Delete</a>
+          </td>
+      </tr>
+      } -->
+      
+  </table>
+  <a class="btn btn-outline-primary" routerLink="/addplaces">Add Places</a>
+
+</div>
+<br><br><br>

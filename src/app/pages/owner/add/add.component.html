@@ -1,0 +1,118 @@
+<br><br><br><br><br><br><br><br>
+<div class="container">
+  <form [formGroup]="AddForm" class="needs-validation" novalidate >
+    <fieldset>
+      <legend class="cen alert alert-success" >Add Places</legend>
+      <div class="form-group row">
+        <label for="ID" class="col-sm-2 col-form-label">ID</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="ID" formControlName="id" (ngModelChange)="checkID()">
+          <div *ngIf="AddForm.controls.id.invalid && AddForm.controls.id.touched" class="text-danger">
+            <span *ngIf="AddForm.controls.id.errors?.['required']">ID is required</span>
+            <span *ngIf="!contain">ID already exists</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="description" class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="description" formControlName="description">
+          <div *ngIf="AddForm.controls.description.invalid && AddForm.controls.description.touched" class="text-danger">
+            <span *ngIf="AddForm.controls.description.errors?.['required']">Description is required</span>
+            <span *ngIf="AddForm.controls.description.errors?.['maxlength']">Description should be maximum 500 characters</span>
+          </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label for="location" class="col-sm-2 col-form-label">Location</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="location" formControlName="location">
+          <div *ngIf="AddForm.controls.location.invalid && AddForm.controls.location.touched" class="text-danger">
+            <span *ngIf="AddForm.controls.location.errors?.['required']">location is required</span>
+            <span *ngIf="AddForm.controls.location.errors?.['maxlength']">location should be maximum 100 characters</span>
+          </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label for="region" class="col-sm-2 col-form-label">Region</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="region" formControlName="region">
+          <div *ngIf="AddForm.controls.region.invalid && AddForm.controls.region.touched" class="text-danger">
+            <span *ngIf="AddForm.controls.region.errors?.['required']">region is required</span>
+            <span *ngIf="AddForm.controls.region.errors?.['maxlength']">region should be maximum 100 characters</span>
+          </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label for="price" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="price" formControlName="price">
+          <div *ngIf="AddForm.controls.price.invalid && AddForm.controls.price.touched" class="text-danger">
+            <span *ngIf="AddForm.controls.price.errors?.['required']">Price is required</span>
+            <span *ngIf="AddForm.controls.price.errors?.['min']">Price cannot be negative</span>
+            <span *ngIf="AddForm.controls.price.errors?.['notNumber']">Price must be a number</span>
+          </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label for="capacity" class="col-sm-2 col-form-label">Capacity</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control " id="capacity" formControlName="capacity">
+          <div *ngIf="AddForm.controls.capacity.invalid && AddForm.controls.capacity.touched" class="text-danger">
+            <span *ngIf="AddForm.controls.capacity.errors?.['required']">Capacity is required</span>
+            <span *ngIf="AddForm.controls.capacity.errors?.['min']">Capacity cannot be negative</span>
+            <span *ngIf="AddForm.controls.capacity.errors?.['notNumber']">Capacity must be a number</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="gender" formControlName="gender">
+          <div *ngIf="AddForm.controls.gender.invalid && AddForm.controls.gender.touched" class="text-danger">
+            <span *ngIf="AddForm.controls.gender.errors?.['required']">Gender is required</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="numofroom" class="col-sm-2 col-form-label">Num of Rooms</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="numofroom" formControlName="numofroom">
+          <div *ngIf="AddForm.controls.numofroom.invalid && AddForm.controls.numofroom.touched" class="text-danger">
+            <span *ngIf="AddForm.controls.numofroom.errors?.['required']">Number of rooms is required</span>
+            <span *ngIf="AddForm.controls.numofroom.errors?.['min']">Number of rooms cannot be negative</span>
+            <span *ngIf="AddForm.controls.numofroom.errors?.['notNumber']">Number of rooms must be a number</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="phone" class="col-sm-2 col-form-label">phone</label>
+        <div class="col-sm-10">
+           <input class="form-control" type="text" name="phone" id="phone" required formControlName="phone" />
+          <div  *ngIf="AddForm.controls.phone.invalid && AddForm.controls.phone.touched"  class="text-danger">
+            <span *ngIf="AddForm.controls.phone.errors?.['required']">Phone is required</span>
+            <span *ngIf="AddForm.controls.phone.errors?.['pattern']">Invalid phone number format</span>
+          </div>
+        </div>
+    </div>
+    <div class="form-group row">
+      <label for="image" class="col-sm-2 col-form-label w-25 h-25">Images</label>
+      <div class="col-sm-10">
+        <input type="file" class="form-control" id="image" formControlName="img" multiple>
+        <div class="text-danger" *ngIf="AddForm.controls.img.invalid && AddForm.controls.img.touched">
+          <span *ngIf="AddForm.controls.img.errors?.['required']">At least one image is required</span>
+        </div>
+      </div>
+    </div>
+      <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+          <div *ngIf="AddForm.invalid && (AddForm.dirty || AddForm.touched)" class="text-danger">Please correct the errors in the form.</div>
+          <button type="submit" class="btn btn-primary" (click)="AddPlaces()" [disabled]="AddForm.invalid || !contain">Add</button>  
+        </div>
+      </div>
+    </fieldset>
+  </form>
+  <br>
+  <button class="btn btn-info"><a routerLink="/places" class="btn btn-info">Back to Places</a></button>
+</div>
+<br><br>
