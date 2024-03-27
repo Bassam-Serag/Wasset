@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterLinkActive, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports :[RouterModule,ReactiveFormsModule,CommonModule,HttpClientModule,
+  imports :[RouterModule,ReactiveFormsModule,CommonModule,HttpClientModule,RouterLinkActive
     // provideHttpClient().withFetch()
   ],
    
@@ -62,17 +62,9 @@ export class RegisterComponent
 
     
   }
-
-  // uniqueEmailValidator(formGroup: FormGroup): { [key: string]: any } | null {
-  //   const email = formGroup.get('email');
-  //   if (email && email.value) {
-  //     const isEmailUnique = this._AuthService.checkEmailUniqueness(email.value);
-  //     if (!isEmailUnique) {
-  //       return { notUniqueEmail: true };
-  //     }
-  //   }
-  //   return null;
-  // }
+// ngOnInit(): void {
+//   this.handleRegister(this.register)
+// }
   handleRegister(register:FormGroup)
   {
     

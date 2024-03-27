@@ -14,7 +14,7 @@
     </div>
     <div class="container__child signup__form">
       <div *ngIf="errMsg" class="alert alert-danger">
-          {{errMsg}}
+        Signup failed!<br /> {{errMsg}}
       </div>
         <form [formGroup]="loginForm" (ngSubmit)="handleloginForm(loginForm)">
             <br><br>
@@ -37,22 +37,15 @@
                 </div>
             </div>
             <br>
-            <!-- <div class="form-group " >
-                <label for="userType">User Type</label>
-                <select class="form-control" name="userType" id="userType" required>
-                    <option value="homeowner">Homeowner</option>
-                    <option value="student">Student</option>
-                </select>
-            </div> -->
             <div>
                 <!-- (click)="handleloginForm(loginForm)" -->
               <button class="btn btn--form" type="submit" value="Login" (click)="loginForm.markAllAsTouched()">Login
-                  <!-- <div *ngIf="isLoading" class="loader">
+                  <div *ngIf="isLoading" class="loader">
                       <div class="loader-inner">
                           <div class="circle"></div>
                       </div>
                       <span *ngIf="!isLoading" >Login</span>
-                  </div> -->
+                  </div>
               </button>
               <br>
                 <a class="signup__link"routerLink="/register" routerLinkActive="active">Not Have account ?</a>

@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/user/about/about.component';
 import { HomeComponent } from './pages/user/home/home.component';
 import { ErrorComponent } from './Components/error/error.component';
@@ -14,6 +14,7 @@ import { UpdatePlacesComponent } from './pages/owner/update-places/update-places
 import { LoginStudentComponent } from './Components/login-student/login-student.component';
 import { LoginAdminComponent } from './Components/login-admin/login-admin.component';
 import { ApprovalComponent } from './pages/admin/approval/approval.component';
+import { NgModule } from '@angular/core';
 //import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
@@ -36,3 +37,8 @@ export const routes: Routes = [
 
     {path:"**",component:ErrorComponent}
 ];
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
+  })
+  export class AppRoutingModule {}

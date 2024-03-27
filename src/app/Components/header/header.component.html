@@ -27,14 +27,20 @@
 								<!--*ngIf="isLogin"  -->
 								<li ><a  routerLink="/contact" routerLinkActive="active" >Contact</a></li>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<!-- *ngIf="!isLogin" -->
-								<li  class="boxed-btn m-auto" style="height: 40px; border-radius: 5px;">Login
+								<!-- <li *ngIf="!isLogin" class="boxed-btn m-auto" style="height: 40px; border-radius: 5px;">Login
+									<ul class="sub-menu">
+									  <li><a routerLink="/login" routerLinkActive="active">Owner</a></li>
+									  <li><a routerLink="/loginstudent" routerLinkActive="active">Student</a></li>
+									</ul>
+								  </li> -->
+
+							<!-- *ngIf="!isLogin" -->
+								  <li  class="boxed-btn m-1 p-3" style="height: 50px; border-radius: 5px;">Login
 									<ul class="sub-menu">
 									  <li><a routerLink="/login" routerLinkActive="active">Owner</a></li>
 									  <li><a routerLink="/loginstudent" routerLinkActive="active">Student</a></li>
@@ -44,26 +50,27 @@
 									
 									<div class="header-icons ">
 
-										<!-- *ngIf="isLogin" -->
-										<!-- <div class="search-bar-tablecell">
-											<input type="text" placeholder="search" #ser>
-										</div>
-										<a class="mobile-hide search-bar-icon" (click)="onSearch(ser.value)"><i
-												class="fas fa-search"></i></a> -->
+										
 										<!-- *ngIf="!isLogin" -->
 										<!-- <a  routerLink="/login" routerLinkActive="active" class="boxed-btn" style="height: 50px ; ">Login</a> -->
 										
 										<!-- *ngIf="!isLogin"  -->
-										<a routerLink="/register" routerLinkActive="active" class="bordered-btn m-2 p-1 text-center" style="height: 40px;  margin: 0 auto; border-radius: 5px;">Register</a>
 										<!-- *ngIf="isLogin" -->
-										<a (click)="logout()" class="boxed-btn  m-auto text-center" style="height: 40px;   margin: 0 auto; border-radius: 5px;">Logout</a>
-
+										<!-- <a *ngIf="!isLogin"  routerLink="/register" routerLinkActive="active" class="bordered-btn m-1 p-1 text-center" style="height: 40px;  margin: 0 auto; border-radius: 5px;">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										
+										
+										<a *ngIf="isLogin" (click)="logout()" class="boxed-btn  m-auto text-center" style="height: 40px;   margin: 0 auto; border-radius: 5px;">Logout</a> -->
+										
+										<!-- *ngIf="!isLogin" -->
+										<a  routerLink="/register" routerLinkActive="active" class="bordered-btn m-1 "style="height: 50px; border-radius: 5px;" >Register</a>
+										<!-- *ngIf="isLogin" -->
+										<a  (click)="logout()" class="boxed-btn" style="height: 50px; border-radius: 5px;">Logout</a>
 
 									</div>
 									
 								</li>
-
-
 							</ul>
 						</nav>
 						<!-- <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a> -->
