@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import Swal from 'sweetalert2';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,6 @@ export class LoginComponent {
     if(loginForm.valid)
     {
     this._AuthService.loginFormToAPI(loginForm.value.email, loginForm.value.password).subscribe({
-
       next: (res) => {
         //if (res.message === 'success') {
           this.loginForm=res;
@@ -47,14 +47,35 @@ export class LoginComponent {
             timer: 1000,
             width: '400px'
           }).then(() => {
+          let userType:any ;
+            const token = localStorage.getItem('userToken');
+            if (token) {
+              const decodedToken: any = jwtDecode(token);
+             userType =
+                decodedToken[
+                  'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+                ];}
+            
+            console.log(userType)
+            if (userType === 'student') {
+              this._Router.navigate(['/home']);
+            } else if (userType === 'owner') {
+              this._Router.navigate(['/places']);
+            }
+            else if (userType === 'Admin') {
+              this._Router.navigate(['/approval']);
+            }else{
+              this._Router.navigate(['/login']);
+
+            }
             // Navigate based on the user type
-            this._Router.navigate(['/places']);
+            
           });
         //}
       },
       error: (err) => {
         this.isLoading = false;
-        this.errMsg = err.error.message;
+        this.errMsg = err.error;
       }
     });
     }

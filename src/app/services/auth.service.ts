@@ -36,10 +36,10 @@ export class AuthService {
  registerToAPI(userData:object):Observable<any>
  {
   return this.myClient.post("https://localhost:44301/api/Account/Register",userData);
-
  }
  
  loginFormToAPI(email: string, password: string): Observable<any> {
+
   const userData = { email, password };
   return this.myClient.post("https://localhost:44301/api/Account/Login", userData);
 }

@@ -7,82 +7,52 @@ import { CommonModule } from '@angular/common';
 
 
 @Component({
-    selector: 'app-header',
-    standalone: true,
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.css',
-    imports: [RouterModule,HttpClientModule,CommonModule],
-    providers: [AuthService]
+  selector: 'app-header',
+  standalone: true,
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css',
+  imports: [RouterModule, HttpClientModule, CommonModule],
+  providers: [AuthService],
 })
-/*
 
-
-
-*/
 export class HeaderComponent {
-    isLogin:boolean=false;
-    userName: string = '';
+  isLogin: boolean = false;
+  userName: string = '';
 
-    //this is to call logout in AuthService//
-    logout(){
-        this._AuthService.logout();
-    }
-    // ngOnChanges(changes: SimpleChanges): void {
-    //     this._AuthService.userData.subscribe({
-    //         next:(data)=>{
-    //             if(this._AuthService.userData.getValue() !==null){
-    //                 this.isLogin=true;
-    //                 //this.userName = data.name;
-    //             }else{ this.isLogin=false;}//this.userName = '';
-    //         }
-    //     })
-    // }
+  //this is to call logout in AuthService//
+  logout() {
+    this.isLogin = false;
+    this._AuthService.logout();
+  }
 
-    
-    // ngOnInit(): void {
-    //     this._AuthService.userData.subscribe({
-    //         next:(data)=>{
-    //             if(this._AuthService.userData.getValue() !==null){
-    //                 this.isLogin=true;
-    //                 //this.userName = data.name;
-    //             }else{ this.isLogin=false;}//this.userName = '';
-    //         }
-    //     })
-        
-    // }
-    constructor(private _AuthService:AuthService ,private routerService:Router)
-    {
-        _AuthService.userData.subscribe({
-            next:(data)=>{
-                if(_AuthService.userData.getValue() !==null){
-                    this.isLogin=true;
-                    //this.userName = data.name;
-                }else{ this.isLogin=false;}//this.userName = '';
-            }
-        })
+  ngOnInit(): void {
+    this.getlogin();
+  }
+  constructor(
+    private _AuthService: AuthService,
+    private routerService: Router
+  ) {
+    //this.getlogin();
+  }
+  getlogin() {
+    const token = localStorage.getItem('userToken');
+    if (token !== null) {
+      this.isLogin = true;
+      //window.location.reload();
+      //this.userName = token;
+    } else {
 
-    }
-    // constructor(private _AuthService: AuthService) {
-    //     _AuthService.userData.subscribe({
-    //         next: (data) => {
-    //             if (data !== null) { // Check if data is not null
-    //                 this.isLogin = true;
-    //                 //this.userName = data.name;
-    //             } else {
-    //                 this.isLogin = false;
-    //                 this.userName = '';
-    //             }
-    //         }
-    //     });
-    // }
+      this.isLogin = false;
+    } //this.userName = ''
+    console.log(token);
+    //
+  }
 
-    onSearch(value:any){
-
-        this.routerService.navigate(["/hosing"],{queryParams:{search:value}});
-
-    }
-    
-
+  onSearch(value: any) {
+    this.routerService.navigate(['/hosing'], {
+      queryParams: { search: value },
+    });
+  }
 }
 
 

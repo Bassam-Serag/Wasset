@@ -15,24 +15,24 @@ import { LoginStudentComponent } from './Components/login-student/login-student.
 import { LoginAdminComponent } from './Components/login-admin/login-admin.component';
 import { ApprovalComponent } from './pages/admin/approval/approval.component';
 import { NgModule } from '@angular/core';
-//import { authGuard } from './auth.guard';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     {path:"",redirectTo:"register",pathMatch:"full"},
-    {path:"home",component:HomeComponent},//canActivate:[authGuard] ,
-    {path:"about",component:AboutComponent},//canActivate:[authGuard] ,
-    {path:"contact",component:ContactComponent},//canActivate:[authGuard] ,
-    {path:"hosing",component:HousingComponent},//canActivate:[authGuard] ,
-    {path:"details",component:DetailsComponent},//canActivate:[authGuard] ,
+    {path:"home",canActivate:[authGuard] ,component:HomeComponent},//
+    {path:"about",canActivate:[authGuard] ,component:AboutComponent},//
+    {path:"contact",canActivate:[authGuard] ,component:ContactComponent},//
+    {path:"hosing",canActivate:[authGuard] ,component:HousingComponent},//
+    {path:"details",canActivate:[authGuard] ,component:DetailsComponent},//
     {path:"register",component:RegisterComponent},
     {path:"login",component:LoginComponent},
     {path:"loginstudent",component:LoginStudentComponent},
     {path:"loginadmin",component:LoginAdminComponent},
-    {path:"places",component:PlacesComponent},
-    {path:"places/:id",component:DetailsPlacesComponent},
-    {path:"updateplaces/:id",component:UpdatePlacesComponent},
-    {path:"addplaces",component:AddComponent},
-    {path:"approval",component:ApprovalComponent},
+    {path:"places",canActivate:[authGuard],component:PlacesComponent},
+    {path:"places/:id",canActivate:[authGuard],component:DetailsPlacesComponent},
+    {path:"updateplaces/:id",canActivate:[authGuard],component:UpdatePlacesComponent},
+    {path:"addplaces",canActivate:[authGuard],component:AddComponent},
+    {path:"approval",canActivate:[authGuard],component:ApprovalComponent},
 
 
     {path:"**",component:ErrorComponent}

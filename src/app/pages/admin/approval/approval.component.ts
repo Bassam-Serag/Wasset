@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { PlacesOwnerService } from '../../../services/places-owner.service';
 import { RouterLink, RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-approval',
@@ -9,7 +10,8 @@ import { RouterLink, RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterLink,
-    RouterModule
+    RouterModule,
+    NgxPaginationModule
   ],
   templateUrl: './approval.component.html',
   styleUrl: './approval.component.css'
@@ -19,7 +21,7 @@ export class ApprovalComponent  implements OnInit{
   constructor(private ownerService:PlacesOwnerService){
 
   }
-
+p:number=1;
   notApprovedAppartment:any=[];
 
   getAllPlaces(){
@@ -61,7 +63,7 @@ this.ownerService.deletePlaces(id).subscribe({
     this.ownerService.getPlacesByID(id).subscribe({
       next:(res:any)=>{
         var objAppart={
-          id:res.id,
+          //id:res.id,
           description :res.description,
           location:res.location,
           region:res.region,

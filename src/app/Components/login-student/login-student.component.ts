@@ -32,33 +32,6 @@ export class LoginStudentComponent {
     this.isLoading=true
     if(loginForm.valid)
     {
-      /*
-    this._AuthService.loginFormToAPI(loginForm.value).subscribe({
-      next: (res) => {
-        if (res.message === 'success') {
-          localStorage.setItem('userToken', resposne.token);
-          this._AuthService.decodeUserData();
-          this.isLoading = false;
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Login successful!',
-            showConfirmButton: false,
-            timer: 1000,
-            width: '400px'
-          }).then(() => {
-            this._Router.navigate(['/home']);
-          });
-        }
-      },
-      error: (err) => {
-        this.isLoading = false;
-        this.errMsg = err.error.message;
-      }
-    });
-    */
-      
-
     this._AuthService.loginFormToAPI(loginForm.value.email, loginForm.value.password).subscribe({
 
       next: (res) => {
@@ -77,12 +50,16 @@ export class LoginStudentComponent {
           }).then(() => {
             // Navigate based on the user type
             this._Router.navigate(['/home']);
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          
           });
         //}
       },
       error: (err) => {
         this.isLoading = false;
-        this.errMsg = err.error.message;
+        this.errMsg = err.error;
       }
     });
     }

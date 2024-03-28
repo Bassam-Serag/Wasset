@@ -23,6 +23,11 @@ import Swal from 'sweetalert2';
 export class RegisterComponent  
 {
   constructor(private _AuthService:AuthService,private _FormBuilder:FormBuilder , private _Router:Router){} 
+  // ngOnInit(): void {
+  //   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //   //Add 'implements OnInit' to the class.
+  //   //this.register()
+  // }
   isLoading:boolean=false;
   errMsg:string='';
   stringOnlyValidator(control: any): {[key: string]: any} | null {
@@ -51,7 +56,6 @@ export class RegisterComponent
    if(passwordControl.value===rePasswordControl.value)
    {
     return null;
-
    }else
    {
     rePasswordControl.setErrors({passwordMatch:' password and rePassword not match '});
@@ -66,17 +70,21 @@ export class RegisterComponent
 //   this.handleRegister(this.register)
 // }
   handleRegister(register:FormGroup)
-  {
-    
-    this.isLoading=true
+  { this.isLoading=true
     if(register.valid)
     {
-      
     this._AuthService.registerToAPI(register.value).subscribe({
       next: (res) => {
-         //if (res.message === 'success') {
-          this.register=res;
-          this.isLoading = false;
+        this.register=res;
+        console.log(res);
+        this.isLoading = false;
+        // if (res.error){
+        //   this.errMsg=res.error
+        //   //window.alert(res.error);
+        // }
+          //else
+        //{ //if (res.message === 'success') {
+          //this.register=res;
           Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -85,21 +93,27 @@ export class RegisterComponent
             timer: 1000,
             width: '400px'
           }).then(() => {
-            const userType = register.value.role;
-            if (userType === 'student') {
-              this._Router.navigate(['/loginstudent']);
-            } else if (userType === 'owner') {
-              this._Router.navigate(['/login']);
-            }
+            this._Router.navigate(['/login']);
+            // const userType = register.value.role;
+            // if (userType === 'student') {
+            //   this._Router.navigate(['/loginstudent']);
+            // } else if (userType === 'owner') {
+            //   this._Router.navigate(['/login']);
+            // }
           });
+         
         //}
+          
+       // }
       },
       error: (err) => {
         this.isLoading = false;
         // if (err.error.message === 'This email has already been used') {
         //   this.errMsg = 'This email has already been used';
         // } else {
-          this.errMsg = err.error.message;
+          this.errMsg = err.error;
+          //window.alert(err.error);
+          //console.log(err.error);
         //}
       }
     });
@@ -108,3 +122,43 @@ export class RegisterComponent
   }
 
 }
+
+
+
+// handleRegister(register: FormGroup) {
+//   if (register.valid) {
+//     this.isLoading = true;
+//     this._AuthService.registerToAPI(register.value).subscribe({
+//       next: (res) => {
+//         if (res) {
+//           if (res.error) {
+//             this.errMsg = res.error;
+//           } else {
+//             Swal.fire({
+//               position: 'top-end',
+//               icon: 'success',
+//               title: 'Registration successful!',
+//               showConfirmButton: false,
+//               timer: 1000,
+//               width: '400px'
+//             }).then(() => {
+//               const userType = register.value.role;
+//               if (userType === 'student') {
+//                 this._Router.navigate(['/loginstudent']);
+//               } else if (userType === 'owner') {
+//                 this._Router.navigate(['/login']);
+//               }
+//             });
+//           }
+//         } else {
+//           this.errMsg = 'An error occurred during registration.';
+//         }
+//         this.isLoading = false;
+//       },
+//       error: (err) => {
+//         this.isLoading = false;
+//         this.errMsg = err.error.message || 'An error occurred during registration.';
+//       }
+//     });
+//   }
+// }

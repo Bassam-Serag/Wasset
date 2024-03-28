@@ -17,6 +17,7 @@ import { NgModule } from '@angular/core';
 
 //import{BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
     selector: 'app-root',
@@ -37,7 +38,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
       HttpClientModule,
       ReactiveFormsModule,
       //BrowserAnimationsModule,
-      CarouselModule
+      CarouselModule,
+      NgxPaginationModule
      
 
 

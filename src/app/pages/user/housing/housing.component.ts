@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { PlacesOwnerService } from '../../../services/places-owner.service';
 import { CommonModule } from '@angular/common';
 import { SearchPipe } from "../../../search.pipe";
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @Component({
@@ -13,7 +14,8 @@ import { SearchPipe } from "../../../search.pipe";
     imports: [
         RouterModule,
         CommonModule,
-        SearchPipe
+        SearchPipe,
+        NgxPaginationModule
     ]
 })
 
@@ -31,6 +33,7 @@ export class HousingComponent implements OnInit {
     // this.filteration();
   }
   appartment:any=[];
+  p:number=1
   getAllPlaces(){
     this.ownerService.getAllPlaces().subscribe({
       next:(res:any)=>{
@@ -78,11 +81,23 @@ searchString:any;
 
 
   }
-  onSearch(value:any){
-
-    this.routerService.navigate(["/hosing"],{queryParams:{search:value}});
-
-}
+  onSearch(value: any) {
+    if (value === '' || value === null || value === undefined) {
+      // this.appartment=this.appartment;
+      this.getAllPlaces();
+    } else {
+      // this.appartment=this.appartment.filter((c:any)=>c.gender.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
+      this.ownerService.getAllPlaces().subscribe({
+        next: (res: any) => {
+          this.appartment = res.filter(
+            (c: any) =>
+              c.isApproved == true &&
+              c.gender.toLocaleLowerCase() === value.toLocaleLowerCase()
+          );
+        },
+      });
+    }
+  }
 
 
 }

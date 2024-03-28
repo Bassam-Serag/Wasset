@@ -75,14 +75,14 @@ export class LoginAdminComponent {
             timer: 1000,
             width: '400px'
           }).then(() => {
-            // Navigate based on the user type
+            
             this._Router.navigate(['/approval']);
           });
         //}
       },
       error: (err) => {
         this.isLoading = false;
-        this.errMsg = err.error.message;
+        this.errMsg = err.error;
       }
     });
     }
