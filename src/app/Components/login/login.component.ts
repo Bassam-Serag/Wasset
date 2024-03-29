@@ -59,16 +59,24 @@ export class LoginComponent {
             console.log(userType)
             if (userType === 'student') {
               this._Router.navigate(['/home']);
+              setTimeout(() => {
+                window.location.reload();
+              }, 50);
             } else if (userType === 'owner') {
               this._Router.navigate(['/places']);
+              setTimeout(() => {
+                window.location.reload();
+              }, 50);
             }
             else if (userType === 'Admin') {
               this._Router.navigate(['/approval']);
+              setTimeout(() => {
+                window.location.reload();
+              }, 50);
             }else{
               this._Router.navigate(['/login']);
 
             }
-            // Navigate based on the user type
             
           });
         //}

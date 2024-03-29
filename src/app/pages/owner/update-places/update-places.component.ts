@@ -50,7 +50,7 @@ export class UpdatePlacesComponent {
         // this.AddForm.controls.img.setValue(this.Places.img);
       },
       error:(err)=>{
-        this.router.navigate(['/error',{errormessage : err.message as string}]);
+        this.router.navigate(['/error',{errormessage : err.error as string}]);
       }
     })
   }
@@ -82,7 +82,7 @@ export class UpdatePlacesComponent {
     return null;
   }
   UpdatePlaces() {
-    if (this.AddForm.valid) {
+    if (this.AddForm.valid ) {
       let newPlace = {
         //id: this.AddForm.controls.id.value,
         description: this.AddForm.controls.description.value,
@@ -97,9 +97,31 @@ export class UpdatePlacesComponent {
         // isRented:false
       };
       console.log(this.id)
+      //console.log(this.Places.apartmentId)
+
+      console.log(newPlace)
       this._PlacesOwnerService.updatePlaces(this.id, newPlace).subscribe({
-        //this.router.navigate(['/places'])
-      })
+        next: () => {
+          Swal.fire({
+            title: "Success!",
+            text: "Place updated successfully.",
+            icon: "success"
+          }).then(() => {
+            //this._PlacesOwnerService.getAllPlaces();
+            this.router.navigate(['/places']);
+          });
+        },
+        error: (err) => {
+          console.log(err.error);
+          // Swal.fire({
+          //   title: "Error!",
+          //   text: "Failed to update place.",
+          //   icon: "error"
+          // });
+        }
+      });
+  
+
       //   next:(data)=>{
       //        Swal.fire({
       //     title: "Success!",

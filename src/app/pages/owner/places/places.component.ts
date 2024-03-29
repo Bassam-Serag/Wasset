@@ -53,17 +53,23 @@ export class PlacesComponent implements OnInit{
             title: "Deleted!",
             text: "Your Place has been deleted.",
             icon: "success"
+            
           }).then(() => {
             this.getAllPlaces();
             //this.accept(id);
           //    this._PlacesOwnerService.getAllPlaces().subscribe((data) => {
           //   this.Places = data;
           // });
-            this.router.navigate(['/places']);
+          // setTimeout(() => {
+          //   window.location.reload();
+          // }, 50);
+          // this.getAllPlaces();
+            
           });
         });
       }
     });
+
   }
   getAllPlaces(){
     this._PlacesOwnerService.getAllPlaces().subscribe({
@@ -74,7 +80,7 @@ export class PlacesComponent implements OnInit{
         //.filter((c:any)=>c.isRented==false)
       },
       error:(err)=>{
-        this.router.navigate(['/error',{errormessage : err.message as string}]);
+        this.router.navigate(['/error',{errormessage : err.error as string}]);
       }
     })
 

@@ -13,9 +13,7 @@
   @if(register){
   <div class="container__child signup__form">
 
-    <div *ngIf="errMsg" class="alert alert-danger">
-      Register failed!<br />{{errMsg}}
-  </div>
+ 
       <form [formGroup]="register" (ngSubmit)="handleRegister(register)">
 
   <div class="form-group">
@@ -92,7 +90,9 @@
   </div>
 </div>
 <div>
-  
+  <div *ngIf="errMsg" class="alert alert-danger">
+    Register failed!<br />{{errMsg}}
+</div>
   <button class="btn btn--form" type="submit" (click)="register.markAllAsTouched()">Register
       <!-- <div *ngIf="isLoading" class="loader">
           <div class="loader-inner">
