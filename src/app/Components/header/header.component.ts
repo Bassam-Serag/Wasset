@@ -3,6 +3,7 @@ import { Router,RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { jwtDecode } from 'jwt-decode';
 
 
 
@@ -17,7 +18,10 @@ import { CommonModule } from '@angular/common';
 
 export class HeaderComponent {
   isLogin: boolean = false;
-  userName: string = '';
+  isStd: boolean = false;
+  userName :any;
+
+  //userName: string = '';
 
   //this is to call logout in AuthService//
   logout() {
@@ -36,6 +40,17 @@ export class HeaderComponent {
   }
   getlogin() {
     const token = localStorage.getItem('userToken');
+    let userType:any ;
+    if (token) {
+      const decodedToken: any = jwtDecode(token);
+      this.userName= decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']
+     userType =
+        decodedToken[
+          'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+        ];}
+        if (userType === 'student'){
+            this.isStd=true;
+        }
     if (token !== null) {
       this.isLogin = true;
       //window.location.reload();

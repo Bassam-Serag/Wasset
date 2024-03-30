@@ -1,5 +1,5 @@
 	<!-- header -->
-	<div class="top-header-area " id="sticker" style="height: 81px; background-color: #051922; ">
+	<div class="top-header-area " id="sticker" style="height: 80px; background-color: #051922; ">
 		<div class="container ">
 			<div class="row ">
 				<div class=" col-lg-12 col-sm-12 text-center">
@@ -17,65 +17,25 @@
 						<nav class="main-menu ">
 							<ul>
 								<!--*ngIf="isLogin"  -->
-								<li *ngIf="isLogin" ><a  routerLink="/home" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" class="current-list-item"  >Home</a>
+								<li *ngIf="isLogin && isStd" ><a  routerLink="/home" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" class="current-list-item"  >Home</a>
 
                                 </li>
 								<!--*ngIf="isLogin"  -->
-								<li *ngIf="isLogin"><a  routerLink="/hosing" routerLinkActive="active" >Housing</a></li>
+								<li *ngIf="isLogin && isStd"><a  routerLink="/hosing" routerLinkActive="active" >Housing</a></li>
 								<!--*ngIf="isLogin"  -->
-								<li *ngIf="isLogin" ><a  routerLink="/about" routerLinkActive="active" >About</a></li>
+								<li *ngIf="isLogin && isStd" ><a  routerLink="/about" routerLinkActive="active" >About</a></li>
 								<!--*ngIf="isLogin"  -->
-								<li *ngIf="isLogin" ><a  routerLink="/contact" routerLinkActive="active" >Contact</a></li>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-								<!-- *ngIf="!isLogin" -->
-								<!-- <li *ngIf="!isLogin" class="boxed-btn m-auto" style="height: 40px; border-radius: 5px;">Login
-									<ul class="sub-menu">
-									  <li><a routerLink="/login" routerLinkActive="active">Owner</a></li>
-									  <li><a routerLink="/loginstudent" routerLinkActive="active">Student</a></li>
-									</ul>
-								  </li> -->
-
-							<!-- *ngIf="!isLogin" -->
-								  <li routerLink="/login" *ngIf="!isLogin" class="boxed-btn m-1 p-3" style="height: 50px; border-radius: 5px;cursor: pointer; ">Login
-									<!-- <ul class="sub-menu">
-									  <li><a routerLink="/login" routerLinkActive="active">Owner</a></li>
-									  <li><a routerLink="/loginstudent" routerLinkActive="active">Student</a></li>
-									</ul> -->
-								  </li>
+								<li *ngIf="isLogin && isStd" ><a  routerLink="/contact" routerLinkActive="active" >Contact</a></li>
+								<li *ngIf="isLogin && isStd" ><a  routerLink="#" routerLinkActive="active" >Dashboard</a></li>
 								<li>
 									
 									<div class="header-icons ">
-
-										
+										<a routerLink="/login" *ngIf="!isLogin" class="boxed-btn m-1" style="height: 47px; border-radius: 5px;">Login</a>
 										<!-- *ngIf="!isLogin" -->
-										<!-- <a  routerLink="/login" routerLinkActive="active" class="boxed-btn" style="height: 50px ; ">Login</a> -->
-										
-										<!-- *ngIf="!isLogin"  -->
+										<a *ngIf="!isLogin" routerLink="/register" routerLinkActive="active" class="bordered-btn "style="height: 47px; border-radius: 5px;" >Register</a>
 										<!-- *ngIf="isLogin" -->
-										<!-- <a *ngIf="!isLogin"  routerLink="/register" routerLinkActive="active" class="bordered-btn m-1 p-1 text-center" style="height: 40px;  margin: 0 auto; border-radius: 5px;">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										
-										
-										<a *ngIf="isLogin" (click)="logout()" class="boxed-btn  m-auto text-center" style="height: 40px;   margin: 0 auto; border-radius: 5px;">Logout</a> -->
-										
-										<!-- *ngIf="!isLogin" -->
-										<a *ngIf="!isLogin" routerLink="/register" routerLinkActive="active" class="bordered-btn m-1 "style="height: 50px; border-radius: 5px;" >Register</a>
-										<!-- *ngIf="isLogin" -->
-										<a *ngIf="isLogin" (click)="logout()" class="boxed-btn m-auto" style="height: 50px; border-radius: 5px;">Logout</a>
-
+										<a *ngIf="isLogin">Welcome: <b>({{userName}})</b></a>
+										<a *ngIf="isLogin" (click)="logout()" class="boxed-btn " style="height: 47px; border-radius: 5px;">Logout</a>
 									</div>
 									
 								</li>

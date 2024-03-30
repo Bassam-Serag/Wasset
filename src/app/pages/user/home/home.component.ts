@@ -24,6 +24,7 @@ export class HomeComponent  implements OnInit{
     getAllPlaces(){
       this.ownerService.getAllPlaces().subscribe({
         next:(res:any)=>{
+
           console.log(res);
           this.appartment=res.filter((c:any)=>c.isApproved==true && c.isRented==false);
         }
