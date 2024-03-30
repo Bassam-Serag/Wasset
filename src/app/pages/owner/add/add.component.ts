@@ -44,10 +44,17 @@ export class AddComponent {
     //phone:new FormControl("", [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)] ),
     OwnerID: new FormControl("", [Validators.required]),
 
-    //images: new FormControl("", [Validators.required, this.imageRequiredValidator])
+    images: new FormControl(null, [Validators.required])
+   // images: new FormControl("", [Validators.required, this.imageRequiredValidator])
+
 
   });
-
+  onFileSelected(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      const files = event.target.files;
+      this.AddForm.get('images')?.setValue(files);
+    }
+  }
  v:any;
 getUserIdFromToken(): void {
   const token = localStorage.getItem('userToken');
@@ -107,28 +114,44 @@ getUserIdFromToken(): void {
   AddPlaces() {
     console.log("scvdcsad");
     if (this.AddForm.valid) {
-      let newPlace = {
-       // id: this.AddForm.controls.id.value,
-        Description: this.AddForm.controls.Description.value,
-       
-        Region:this.AddForm.controls.Region.value,
-        NumofRoom: this.AddForm.controls.NumofRoom.value,
-        ApartmentPrice: this.AddForm.controls.ApartmentPrice.value,
-        GenderOfStudents: this.AddForm.controls.GenderOfStudents.value,
-        Location:this.AddForm.controls.Location.value,
-        Capacity: this.AddForm.controls.Capacity.value,
-        //phone:this.AddForm.controls.phone.value ,
-        OwnerID:this.v,
-        //this.AddForm.get('OwnerID')?.setValue(this.userId);
+      const formData = new FormData();
+      formData.append('Description', this.AddForm.controls.Description.value ?? '');
+      formData.append('Region', this.AddForm.controls.Region.value ?? '');
+      formData.append('NumofRoom', this.AddForm.controls.NumofRoom.value ?? '');
+      formData.append('ApartmentPrice', this.AddForm.controls.ApartmentPrice.value ?? '');
+      formData.append('GenderOfStudents', this.AddForm.controls.GenderOfStudents.value ?? '');
+      formData.append('Location', this.AddForm.controls.Location.value ?? '');
+      formData.append('Capacity', this.AddForm.controls.Capacity.value ?? '');
+      formData.append('OwnerID', this.AddForm.controls.OwnerID.value ?? '');
+      
+      const images = this.AddForm.controls.images.value as unknown as any[];
+      if (images !== null) { // Check if images is not null
+        for (let i = 0; i < images.length; i++) {
+          formData.append('images', images[i]);
+        }
+      }
+      // let newPlace = {
+      //  // id: this.AddForm.controls.id.value,
+      //   Description: this.AddForm.controls.Description.value,
+      //   Region:this.AddForm.controls.Region.value,
+      //   NumofRoom: this.AddForm.controls.NumofRoom.value,
+      //   ApartmentPrice: this.AddForm.controls.ApartmentPrice.value,
+      //   GenderOfStudents: this.AddForm.controls.GenderOfStudents.value,
+      //   Location:this.AddForm.controls.Location.value,
+      //   Capacity: this.AddForm.controls.Capacity.value,
+      //   //phone:this.AddForm.controls.phone.value ,
+      //   OwnerID:this.v,
+      //   //this.AddForm.get('OwnerID')?.setValue(this.userId);
 
-        //images:this.AddForm.controls.images.value,
-        // isApproved:false,
-        // isRented:false,
-        // requestRent:false
-      };
-      console.log(newPlace);
+      //   images:this.AddForm.controls.images.value,
+      //   // isApproved:false,
+      //   // isRented:false,
+      //   // requestRent:false
+      // };
+      console.log(formData);
+      console.log(images)
 
-      this._PlacesOwnerService.AddNewPlaces(newPlace).subscribe(() => {
+      this._PlacesOwnerService.AddNewPlaces(formData).subscribe(() => {
         //this.router.navigate(['/places']);
         Swal.fire({
           title: "Success!",

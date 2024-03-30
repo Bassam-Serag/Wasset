@@ -38,18 +38,21 @@ export class PlacesOwnerService {
 
   constructor(private readonly myClient:HttpClient) { }
   getAllPlaces(){
-    return this.myClient.get("https://localhost:44301/api/Apartment/GetAllApartmentsWithImages");
+    return this.myClient.get("https://localhost:44301/api/Apartment/GetAllApartments");
   }
   getPlacesByID(id:any){
-    return this.myClient.get("https://localhost:44301/api/Apartment/GetApartmentWithImages"+"/"+id);
+    return this.myClient.get("https://localhost:44301/api/Apartment/GetApartment"+"/"+id);
   }
   AddNewPlaces(Places:any){
-    return this.myClient.post("https://localhost:44301/api/Apartment/AddApartmentWithImages",Places);
+    return this.myClient.post("https://localhost:44301/api/Apartment/AddApartment",Places);
   }
-  updatePlaces(apartmentId:any,Places:any){
-    return this.myClient.put("https://localhost:44301/api/Apartment/UpdateApartmentWithImages"+"/"+apartmentId,Places);
+  updatePlaces(code:any,Places:any){
+    return this.myClient.put("https://localhost:44301/api/Apartment/UpdateApartment",code,Places);
   }
   deletePlaces(id:any){
     return this.myClient.delete("https://localhost:44301/api/Apartment/DeleteApartment"+"/"+id);
+  }
+  getAllPendingStd(id :any){
+   return this.myClient.get("api/Request/GetAllPendingRequestsPerStudent"+"/"+id);
   }
 }

@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { PlacesOwnerService } from '../../../services/places-owner.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-details-places',
   standalone: true,
-  imports: [HttpClientModule,RouterModule],
+  imports: [HttpClientModule,RouterModule,CommonModule],
   providers:[PlacesOwnerService],
 
   templateUrl: './details-places.component.html',
@@ -25,6 +26,9 @@ export class DetailsPlacesComponent {
     this._PlacesOwnerService.getPlacesByID(this.id).subscribe({
       next:(data)=>{
         this.Places = data;
+        console.log(data);
+
+
       },
       error:(err)=>{
         this.router.navigate(['/error',{errormessage : err.message as string}]);

@@ -16,9 +16,14 @@
           <p><strong>Capacity:</strong> {{ Places.capacity }}</p>
           <p><strong>Gender:</strong> {{ Places.genderOfStudents }}</p>
           <p><strong>Num of rooms:</strong> {{ Places.numofRoom }}</p> 
-          <!-- <p><strong>Phone Number:</strong> {{ Places.phone }}</p>
-          <p><img [src]="Places.img"></p> -->
-
+          <!-- <p><strong>Phone Number:</strong> {{ Places.phone }}</p>-->
+          <div *ngFor="let place of Places.images">
+            <p><img width="90px" height="90px" [src]="place"></p>
+          </div>
+          
+             <!-- <p><img width="90px" height="90px" src="https://localhost:44301/Images/Apartments/Apartment_40/40_2640f2ab-d29d-468c-a413-f7b27f9a55d2.jpg"></p>  -->
+         
+          
          </div>
       </div>
       

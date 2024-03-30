@@ -13,7 +13,8 @@ import Swal from 'sweetalert2';
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   providers:[PlacesOwnerService],
 
@@ -96,7 +97,7 @@ export class UpdatePlacesComponent {
         // img:this.AddForm.controls.img.value,
         // isRented:false
       };
-      console.log(this.id)
+      console.log(typeof(this.id))
       //console.log(this.Places.apartmentId)
 
       console.log(newPlace)
