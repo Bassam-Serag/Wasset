@@ -18,6 +18,9 @@ import { NgModule } from '@angular/core';
 //import{BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DashBoardComponent } from './pages/user/dash-board/dash-board.component';
+import { ApprovalStudentComponent } from './pages/user/approval-student/approval-student.component';
+import { PendingStudentComponent } from './pages/user/pending-student/pending-student.component';
 
 @Component({
     selector: 'app-root',
@@ -39,7 +42,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
       ReactiveFormsModule,
       //BrowserAnimationsModule,
       CarouselModule,
-      NgxPaginationModule
+      NgxPaginationModule,
+      DashBoardComponent,
+      ApprovalStudentComponent,
+      PendingStudentComponent
      
 
 

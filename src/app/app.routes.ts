@@ -16,6 +16,9 @@ import { LoginAdminComponent } from './Components/login-admin/login-admin.compon
 import { ApprovalComponent } from './pages/admin/approval/approval.component';
 import { NgModule } from '@angular/core';
 import { authGuard } from './auth.guard';
+import { DashBoardComponent } from './pages/user/dash-board/dash-board.component';
+import { ApprovalStudentComponent } from './pages/user/approval-student/approval-student.component';
+import { PendingStudentComponent } from './pages/user/pending-student/pending-student.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"register",pathMatch:"full"},
@@ -33,6 +36,11 @@ export const routes: Routes = [
     {path:"updateplaces/:id",canActivate:[authGuard],component:UpdatePlacesComponent},
     {path:"addplaces",canActivate:[authGuard],component:AddComponent},
     {path:"approval",canActivate:[authGuard],component:ApprovalComponent},
+    {path:"dashboard",canActivate:[authGuard],component:DashBoardComponent},
+    {path:"aprovalstudent",canActivate:[authGuard],component:ApprovalStudentComponent},
+    {path:"pendingstudent",canActivate:[authGuard],component:PendingStudentComponent},
+
+
 
 
     {path:"**",component:ErrorComponent}

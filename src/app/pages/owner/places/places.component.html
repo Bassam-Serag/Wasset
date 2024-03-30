@@ -19,11 +19,11 @@
         <td>{{ p.numofRoom }}</td>
         <td>
           <button type="button" class="btn btn-outline-info m-2"
-            [routerLink]="'/places/' + p.apartmentId">Details</button>
+            [routerLink]="'/places/' + p.apartmentId"><i class="fas fa-info-circle"></i></button>
           <button type="button" class="btn btn-outline-success m-2"
-            [routerLink]="'/updateplaces/' + p.apartmentId">Update</button>
+            [routerLink]="'/updateplaces/' + p.apartmentId"><i class="fas fa-sync-alt"></i></button>
           <button type="button" class="btn btn-outline-danger m-2" (click)="deleteplaces(p.apartmentId)"
-            routerLink="/places">Delete</button>
+            routerLink="/places"><i class="fas fa-solid fa-trash"></i></button>
           <!-- <button *ngIf="p.requestRent" type="button" class="btn btn-outline-secondary m-2" (click)="accept(p.id)">Accept</button> -->
         </td>
       </tr>

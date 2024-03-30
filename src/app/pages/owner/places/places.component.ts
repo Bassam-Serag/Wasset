@@ -76,14 +76,12 @@ export class PlacesComponent implements OnInit{
       next:(data:any)=>{
         this.Places = data;
         //console.log(this.Places)
-
         //.filter((c:any)=>c.isRented==false)
       },
       error:(err)=>{
         this.router.navigate(['/error',{errormessage : err.error as string}]);
       }
     })
-
   }
   // accept(id:any){
   //   console.log("This is id :" +id);
