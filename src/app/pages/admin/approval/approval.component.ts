@@ -28,7 +28,7 @@ p:number=1;
     this.ownerService.getAllPlaces().subscribe({
       next:(res)=>{
         this.appartment=res;
-        this.notApprovedAppartment=this.appartment.filter((appart:any)=>appart.isApproved!=true);
+        //this.notApprovedAppartment=this.appartment.filter((appart:any)=>appart.isApproved!=true);
       }
     })
   }
@@ -46,16 +46,6 @@ this.ownerService.deletePlaces(id).subscribe({
   appartment:any=[];
   ngOnInit(): void {
     this.getAllPlaces();
-  
-    
-    // this.appartment=[
-    //   {id:1 ,description:"ay7aga1" , noOfRooms:4,isApproved:false},
-    //   {id:2 ,description:"ay7aga2" , noOfRooms:3,isApproved:false},
-    //   {id:3 ,description:"ay7aga3" , noOfRooms:2,isApproved:false},
-    //   {id:4 ,description:"ay7aga4" , noOfRooms:1,isApproved:false}
-
-    // ]
-    // throw new Error('Method not implemented.');
   }
 
   approval(id:any){

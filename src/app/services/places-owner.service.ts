@@ -53,6 +53,6 @@ export class PlacesOwnerService {
     return this.myClient.delete("https://localhost:44301/api/Apartment/DeleteApartment"+"/"+id);
   }
   getAllPendingStd(id :any){
-   return this.myClient.get("api/Request/GetAllPendingRequestsPerStudent"+"/"+id);
+   return this.myClient.get("https://localhost:44301/api/Request/GetAllPendingRequestsPerStudent"+"/"+id);
   }
 }
