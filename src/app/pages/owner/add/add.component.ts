@@ -34,7 +34,7 @@ export class AddComponent {
   userId:any;
   AddForm = new FormGroup({
     //id: new FormControl("", [Validators.required]),
-    Description: new FormControl("", [Validators.required, Validators.maxLength(500)]),
+    Description: new FormControl("", [Validators.required, Validators.maxLength(1000)]),
     Region: new FormControl("", [Validators.required, Validators.maxLength(100)]),
     NumofRoom: new FormControl("", [Validators.required, Validators.min(0), this.numberOnlyValidator]),
     ApartmentPrice: new FormControl("", [Validators.required, Validators.min(0), this.numberOnlyValidator]),
