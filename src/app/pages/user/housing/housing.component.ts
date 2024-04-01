@@ -29,75 +29,69 @@ export class HousingComponent implements OnInit {
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.getAllPlaces();
-    this.loadSearch();
+    //this.loadSearch();
     // this.filteration();
   }
-  appartment:any=[];
+  appartment:any;
   p:number=1
   getAllPlaces(){
-    this.ownerService.getAllPlaces().subscribe({
+    this.ownerService.getallAppHousing().subscribe({
       next:(res:any)=>{
+        this.appartment = res;
+        console.log(res);
+
         // console.log(res);
-        this.appartment=res.filter((c:any)=>c.isApproved==true);
+        //this.appartment=res.filter((c:any)=>c.isApproved==true);
       }
     })
 
   }
-searchString:any;
-  loadSearch(){
-    this.activatedRoute.queryParamMap.subscribe({
-      next:(res:any)=>{
-        this.searchString=res.get("search");
-        // console.log(this.searchString);
-        if(this.searchString==="" || this.searchString===null || this.searchString===undefined){
-          // this.appartment=this.appartment;
-          this.getAllPlaces();
-        }
-        else{
-          // this.appartment=this.appartment.filter((c:any)=>c.gender.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
-          this.ownerService.getAllPlaces().subscribe({
-            next:(res:any)=>{
-              this.appartment=res.filter((c:any)=>c.isApproved==true &&c.isRented==false && c.gender.toLocaleLowerCase()===this.searchString.toLocaleLowerCase())
+// searchString:any;
+//   loadSearch(){
+//     this.activatedRoute.queryParamMap.subscribe({
+//       next:(res:any)=>{
+//         this.searchString=res.get("search");
+//         // console.log(this.searchString);
+//         if(this.searchString==="" || this.searchString===null || this.searchString===undefined){
+//            this.appartment=this.appartment;
+//           this.getAllPlaces();
+//         }
+//         else{
+//            this.appartment=this.appartment.filter((c:any)=>c.gender.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
+//           this.ownerService.getAllPlaces().subscribe({
+//             next:(res:any)=>{
+//               this.appartment=res.filter((c:any)=>c.isApproved==true &&c.isRented==false && c.gender.toLocaleLowerCase()===this.searchString.toLocaleLowerCase())
 
-            }
-          })
-        }
+//             }
+//           })
+//         }
 
-      }
-    })
+//       }
+//     })
 
-  }
-  // filteration(){
-  //   if(this.searchString==="" || this.searchString===null || this.searchString===undefined){
-  //     this.getAllPlaces();
-  //   }
-  //   else{
-  //     this.appartment=this.appartment.filter((c:any)=>c.gender.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
-  //   }
-    
-  // }
+//   }
+
   openDetails(id:any){
     this .router.navigate(["/details"], {queryParams:{id:id}})
 
-
   }
-  onSearch(value: any) {
-    if (value === '' || value === null || value === undefined) {
-      // this.appartment=this.appartment;
-      this.getAllPlaces();
-    } else {
-      // this.appartment=this.appartment.filter((c:any)=>c.gender.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
-      this.ownerService.getAllPlaces().subscribe({
-        next: (res: any) => {
-          this.appartment = res.filter(
-            (c: any) =>
-              c.isApproved == true &&
-              c.gender.toLocaleLowerCase() === value.toLocaleLowerCase()
-          );
-        },
-      });
-    }
-  }
+  // onSearch(value: any) {
+  //   if (value === '' || value === null || value === undefined) {
+  //     this.appartment=this.appartment;
+  //     this.getAllPlaces();
+  //   } else {
+  //     this.appartment=this.appartment.filter((c:any)=>c.gender.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
+  //     this.ownerService.getAllPlaces().subscribe({
+  //       next: (res: any) => {
+  //         this.appartment = res.filter(
+  //           (c: any) =>
+  //             c.isApproved == true &&
+  //             c.gender.toLocaleLowerCase() === value.toLocaleLowerCase()
+  //         );
+  //       },
+  //     });
+  //   }
+  // }
 
 
 }

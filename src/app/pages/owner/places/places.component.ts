@@ -24,14 +24,6 @@ export class PlacesComponent implements OnInit{
   ngOnInit(): void {
     
     this.getAllPlaces();
-    // this._PlacesOwnerService.getAllPlaces().subscribe({
-    //   next:(data)=>{
-    //     this.Places = data;
-    //   },
-    //   error:(err)=>{
-    //     this.router.navigate(['/error',{errormessage : err.message as string}]);
-    //   }
-    // })
   }
   clickAddPlaces(){
     this.router.navigate(['/addplaces']);

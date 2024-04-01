@@ -83,13 +83,12 @@
         <!-- |search'' -->
         <div class="single-product-item">
             <div class="product-image">
-              <a (click)="openDetails(app.id)" routerLinkActive="active"><img [src]="app.img" alt=""></a>
+              <a (click)="openDetails(app.apartmentId)" routerLinkActive="active"><img [src]="app.imageUrls[0]" alt=""></a>
             </div>
-            <p class="single-product-price"><span><b>Price: </b>{{ app.price | currency: 'EGP' }}</span></p>
-            <!-- <p class="single-product-price"><span><b> Phone: </b>{{app.phone}}</span></p> -->
-            <p class="product-price">{{app.gender}} </p>
-            <a (click)="openDetails(app.id)" routerLinkActive="active" class="cart-btn m-1"><i class="fas fa-info-circle"></i> View Details</a>
-            <a href="tel:{{app.phone}}" class="cart-btn"><i class="fas fa-phone"></i>Contact him</a>
+            <p class="single-product-price"><span><b>Price: </b>{{ app.apartmentPrice | currency: 'EGP' }}</span></p>
+            <p class="product-price">{{app.genderOfStudents}} </p>
+            <a (click)="openDetails(app.apartmentId)" routerLinkActive="active" class="cart-btn m-1"><i class="fas fa-info-circle"></i> View Details</a>
+            <!-- <a href="tel:{{app.phone}}" class="cart-btn"><i class="fas fa-phone"></i>Contact him</a> -->
           </div>
     </div>
   </div>

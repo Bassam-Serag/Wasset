@@ -22,15 +22,29 @@ export class HomeComponent  implements OnInit{
     }
     appartment:any=[];
     getAllPlaces(){
-      this.ownerService.getAllPlaces().subscribe({
+      this.ownerService.getallAppHousing().subscribe({
         next:(res:any)=>{
-
+          this.appartment = res;
           console.log(res);
-          this.appartment=res.filter((c:any)=>c.isApproved==true && c.isRented==false);
+          //this.appartment=res.filter((c:any)=>c.isApproved==true && c.isRented==false);
         }
       })
   
     }
+
+
+    // getAllPlaces(){
+    //   this.ownerService.getallAppHousing().subscribe({
+    //     next:(res:any)=>{
+    //       this.appartment = res;
+    //       console.log(res);
+  
+    //       // console.log(res);
+    //       //this.appartment=res.filter((c:any)=>c.isApproved==true);
+    //     }
+    //   })
+  
+    // }
     openDetails(id:any){
       this .router.navigate(["/details"], {queryParams:{id:id}})
     }

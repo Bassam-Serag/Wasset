@@ -22,15 +22,13 @@
                 <div class="product-filters">
                     <ul>
                         <li class="active" data-filter="*">All</li>
-                        <!-- <li data-filter=".Shalaby">Shalaby</li>
-                        <li data-filter=".Shalaby2">Shalaby2</li>
-                        <li data-filter=".Shalaby3">Shalaby3</li> -->
-
                         <div class="search-bar-tablecell">
                             <input type="text" placeholder="Male/Female" #ser style="background-color: rgb(96, 96, 117);">
                         </div>
-                        <a class="mobile-hide search-bar-icon" (click)="onSearch(ser.value)"><i
+                        <!-- (click)="onSearch(ser.value)" -->
+                        <a class="mobile-hide search-bar-icon" ><i
                                 class="fas fa-search"></i></a>
+
                     </ul>
                 </div>
             </div>
@@ -38,25 +36,19 @@
 
         <div class="row product-lists">
            
-                  <div class="col-lg-4 col-md-6 text-center Shalaby" *ngFor="let app of appartment | paginate: { itemsPerPage: 6, currentPage: p }"> {{app}}  ">
+                  <div class="col-lg-4 col-md-6 text-center " *ngFor="let app of appartment | paginate: { itemsPerPage: 6, currentPage: p }"> 
                     <!-- |search'' -->
                     <div class="single-product-item">
                         <div class="product-image">
-                          <a (click)="openDetails(app.id)" routerLinkActive="active"><img [src]="app.img" alt=""></a>
+                          <a (click)="openDetails(app.apartmentId)" routerLinkActive="active"><img [src]="app.imageUrls[0]" alt=""></a>
                         </div>
-                        <p class="single-product-price"><span><b>Price: </b>{{ app.price | currency: 'EGP' }}</span></p>
-                        <p class="product-price">{{app.gender}} </p>
-                        <a (click)="openDetails(app.id)" routerLinkActive="active" class="cart-btn m-1"><i class="fas fa-info-circle"></i> View Details</a>
-                        <a href="tel:{{app.phone}}" class="cart-btn"><i class="fas fa-phone"></i>Contact him</a>
+                        <p class="single-product-price"><span><b>Price: </b>{{ app.apartmentPrice | currency: 'EGP' }}</span></p>
+                        <p class="product-price">{{app.genderOfStudents}} </p>
+                        <a (click)="openDetails(app.apartmentId)" routerLinkActive="active" class="cart-btn m-1"><i class="fas fa-info-circle"></i> View Details</a>
+                        <!-- <a href="tel:{{app.phone}}" class="cart-btn"><i class="fas fa-phone"></i>Contact him</a> -->
                       </div>
                 </div>
         </div>
-<!--       
-        <ul>
-          <li *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }"> ... </li>
-        </ul>
-                   
-        <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
         
         <div class="row">
             <div class="col-lg-12 text-center">

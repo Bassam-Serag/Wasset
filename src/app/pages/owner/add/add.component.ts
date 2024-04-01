@@ -125,7 +125,7 @@ getUserIdFromToken(): void {
       formData.append('OwnerID', this.AddForm.controls.OwnerID.value ?? '');
       
       const images = this.AddForm.controls.images.value as unknown as any[];
-      if (images !== null) { // Check if images is not null
+      if (images !== null) { 
         for (let i = 0; i < images.length; i++) {
           formData.append('images', images[i]);
         }
@@ -156,10 +156,11 @@ getUserIdFromToken(): void {
         Swal.fire({
           title: "Success!",
           text: "Place added successfully.",
-          imageUrl: "https://www.masrtimes.com/UploadCache/libfiles/39/3/600x338o/811.jpg",
-          imageWidth: 400,
-          imageHeight: 300,
-          imageAlt: "Custom image"
+          icon: "success"
+          // imageUrl: "https://www.masrtimes.com/UploadCache/libfiles/39/3/600x338o/811.jpg",
+          // imageWidth: 400,
+          // imageHeight: 300,
+          // imageAlt: "Custom image"
         }).then(() => {
           this.router.navigate(['/places']);
         });

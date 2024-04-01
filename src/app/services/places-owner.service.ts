@@ -28,7 +28,7 @@
 
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -46,13 +46,44 @@ export class PlacesOwnerService {
   AddNewPlaces(Places:any){
     return this.myClient.post("https://localhost:44301/api/Apartment/AddApartment",Places);
   }
-  updatePlaces(code:any,Places:any){
-    return this.myClient.put("https://localhost:44301/api/Apartment/UpdateApartment",code,Places);
-  }
+  
+updatePlaces(apartmentId: any, Places: any) {
+  const headers = new HttpHeaders({ apartmentId: apartmentId,});
+  return this.myClient.put('https://localhost:44301/api/Apartment/UpdateApartment', Places,{ headers: headers });
+}
   deletePlaces(id:any){
     return this.myClient.delete("https://localhost:44301/api/Apartment/DeleteApartment"+"/"+id);
   }
-  getAllPendingStd(id :any){
-   return this.myClient.get("https://localhost:44301/api/Request/GetAllPendingRequestsPerStudent"+"/"+id);
+ 
+
+  approvalForPost(id:any){
+    return this.myClient.get("https://localhost:44301/api/ApprovalStatus/Approve"+"/"+id);
   }
+  getallAppHousing(){
+    return this.myClient.get("https://localhost:44301/api/Apartment/GetAllApprovalApartments");
+  }
+  makeRent(idStd:any,idDb:any){
+    return this.myClient.post("https://localhost:44301/api/Request"+"/"+idStd+"/"+idDb,null);
+  }
+  getAllrentOwner(id:any){
+    return this.myClient.get("https://localhost:44301/api/Request/GetAllRequestsRelatedToSpecificOwner"+"/"+id);
+  }
+
+  getallPendingAdmin(){
+    return this.myClient.get("https://localhost:44301/api/Apartment/GetAllPendingApartments");
+  }
+  getAllApprovalStd(id :any){
+    return this.myClient.get("https://localhost:44301/api/Request/GetAllApprovedRequestsPerStudent"+"/"+id);
+   }
+
+   getAllPendingStd(id :any){
+    return this.myClient.get("https://localhost:44301/api/Request/GetAllPendingRequestsPerStudent"+"/"+id);
+   }
+   approvalRentByOwner(idReq:any,idApart:any){
+    return this.myClient.post("https://localhost:44301/api/Request/approvalfromurl"+"/"+idReq+"/"+idApart,null);
+   }
+ delRentByOwner(idReq:any){
+    return this.myClient.delete("https://localhost:44301/api/Request"+"/"+idReq);
+   }
+
 }

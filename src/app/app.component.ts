@@ -21,6 +21,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DashBoardComponent } from './pages/user/dash-board/dash-board.component';
 import { ApprovalStudentComponent } from './pages/user/approval-student/approval-student.component';
 import { PendingStudentComponent } from './pages/user/pending-student/pending-student.component';
+import { DetailsAdminComponent } from './pages/admin/details-admin/details-admin.component';
+import { AllRentsComponent } from './pages/owner/all-rents/all-rents.component';
 
 @Component({
     selector: 'app-root',
@@ -45,11 +47,10 @@ import { PendingStudentComponent } from './pages/user/pending-student/pending-st
       NgxPaginationModule,
       DashBoardComponent,
       ApprovalStudentComponent,
-      PendingStudentComponent
+      PendingStudentComponent,
+      DetailsAdminComponent,
+      AllRentsComponent
      
-
-
-      
     ],
     //providers:[provideHttpClient().withFetch()]
     

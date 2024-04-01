@@ -4,7 +4,6 @@
     <thead class="table-dark">
       <tr>
         <th scope="col">Region</th>
-        <th scope="col">Phone</th>
         <th scope="col">Capacity</th>
         <th scope="col">Price</th>
         <th></th>
@@ -12,14 +11,14 @@
     </thead>
 
     <tbody>
-        <tr class="table-info" appChengeColor>
-            <td>Assiut</td>
-            <td>01111111</td>
-            <td>5</td>
-            <td>65</td>
+        <tr *ngFor="let p of Places | paginate: { itemsPerPage: 6, currentPage: p }" class="table-info" appChengeColor>
+            <td>{{p.region}}</td>
+            <td>{{p.capacity}}</td>
+            <td>{{p.price}}</td>
             <td>
-              <button type="button" class="btn btn-outline-danger m-2"
-                routerLink="/dashboard"> <i class="fas fa-solid fa-trash"></i></button>
+                <button type="button" class="btn btn-outline-danger m-2"(click)="deletee(p.requestId)">
+                    <i class="fas fa-times"></i>
+                </button>
             </td>
           </tr>
         <!-- | paginate: { itemsPerPage: 6, currentPage: p }"  -->
@@ -35,18 +34,18 @@
       </tr> -->
     </tbody>
   </table>
-  <!-- <div class="row">
+  <div class="row">
     <div class="col-lg-12 text-center">
       <div class="pagination d-flex justify-content-center mt-5">
         <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel="">
         </pagination-controls>
       </div>
     </div>
-  </div> -->
-  <button type="button" class="btn btn-outline-info"><a routerLink="/dashboard">Back</a></button>
+  </div>
+
+  <button  class="btn btn-outline-info"><a routerLink="/dashboard">Back</a></button>
 
 </div>
-
 <br><br><br>
 
 

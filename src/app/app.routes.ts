@@ -19,6 +19,8 @@ import { authGuard } from './auth.guard';
 import { DashBoardComponent } from './pages/user/dash-board/dash-board.component';
 import { ApprovalStudentComponent } from './pages/user/approval-student/approval-student.component';
 import { PendingStudentComponent } from './pages/user/pending-student/pending-student.component';
+import { DetailsAdminComponent } from './pages/admin/details-admin/details-admin.component';
+import { AllRentsComponent } from './pages/owner/all-rents/all-rents.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"register",pathMatch:"full"},
@@ -39,6 +41,10 @@ export const routes: Routes = [
     {path:"dashboard",canActivate:[authGuard],component:DashBoardComponent},
     {path:"aprovalstudent",canActivate:[authGuard],component:ApprovalStudentComponent},
     {path:"pendingstudent",canActivate:[authGuard],component:PendingStudentComponent},
+    {path:"approval/:id",canActivate:[authGuard],component:DetailsAdminComponent},
+    {path:"allrents",canActivate:[authGuard],component:AllRentsComponent},
+
+
 
 
 

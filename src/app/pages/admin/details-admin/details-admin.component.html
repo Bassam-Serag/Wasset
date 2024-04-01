@@ -1,0 +1,46 @@
+<br><br><br><br><br><br>
+
+<div class="container">
+  @if (Places){
+    <div class="card mb-3 p-5 ">
+      <h5 class="card-title">Places Details</h5>
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+           <p><strong>Description:</strong> {{ Places.description }}</p>
+          <p><strong>Location:</strong> {{ Places.location }}</p>
+          <p><strong>Region:</strong> {{ Places.region }}</p>
+          <p><strong>Price:</strong> {{ Places.apartmentPrice }}</p>
+        </div>
+        <div class="col-sm-6">
+          <p><strong>Capacity:</strong> {{ Places.capacity }}</p>
+          <p><strong>Gender:</strong> {{ Places.genderOfStudents }}</p>
+          <p><strong>Num of rooms:</strong> {{ Places.numofRoom }}</p> 
+          <!-- <p><strong>Phone Number:</strong> {{ Places.phone }}</p>-->
+          <div *ngFor="let place of Places.images">
+            <p><img width="90px" height="90px" [src]="place"></p>
+          </div>
+          
+             <!-- <p><img width="90px" height="90px" src="https://localhost:44301/Images/Apartments/Apartment_40/40_2640f2ab-d29d-468c-a413-f7b27f9a55d2.jpg"></p>  -->
+         
+          
+         </div>
+      </div>
+      
+    </div>
+    <button type="button" class="btn btn-outline-primary"><a routerLink="/approval">Back </a></button>
+
+    
+  }
+  @else {
+    <div class="alert alert-danger">
+      <h1>Loading...</h1>
+    </div>
+  }
+  
+
+</div>
+<br><br><br><br><br><br> 
+
+
+
