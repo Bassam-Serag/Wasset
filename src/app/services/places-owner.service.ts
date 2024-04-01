@@ -85,5 +85,5 @@ updatePlaces(apartmentId: any, Places: any) {
  delRentByOwner(idReq:any){
     return this.myClient.delete("https://localhost:44301/api/Request"+"/"+idReq);
    }
-
+ 
 }

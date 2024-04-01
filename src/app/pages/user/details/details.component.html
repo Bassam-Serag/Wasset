@@ -44,10 +44,8 @@
                         <!-- <p class="single-product-price"><span><b> Phone: </b>{{appartment.phone}}</span></p> -->
                         <div class="d-flex gape-3">
                             <!-- <a href="tel:01147056186" class="cart-btn d-block"><i class="fas fa-phone"></i>Contact him</a> -->
-                            <button class="boxed-btn" (click)="makeRent()">Rent</button>
-                            <!-- <button class="cart-btn d-block btn btn-primary " [ngClass]="{'boxed-btn': !appartment.isRented,
-                             'btn btn-secondary': appartment.isRented}" 
-                              [disabled]="appartment.isRented"  (click)="Rented()">Rent</button> -->
+                            <button class="boxed-btn" (click)="makeRent()" >Rent</button>
+                            <!-- [disabled]="appartment.status === 'approved'" -->
                             
                                 
                         </div>

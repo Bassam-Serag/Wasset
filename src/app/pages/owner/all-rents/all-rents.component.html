@@ -29,7 +29,7 @@
 
         <!-- <td><img [src]="app.img" alt="" width="150px" height="100px"></td> -->
         <td class="d-flex gap-3">
-            <button class="btn btn-outline-primary m-2"  (click)="approval(app)">Approval</button>
+            <button class="btn btn-outline-primary m-2" [disabled]="app.status === 'approved'" (click)="approval(app)">Approval</button>
           <button class="btn btn-outline-danger m-2" (click)="deletee(app.id)">Reject</button>
         </td>
       </tr>
