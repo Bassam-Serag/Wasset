@@ -23,6 +23,7 @@ import { ApprovalStudentComponent } from './pages/user/approval-student/approval
 import { PendingStudentComponent } from './pages/user/pending-student/pending-student.component';
 import { DetailsAdminComponent } from './pages/admin/details-admin/details-admin.component';
 import { AllRentsComponent } from './pages/owner/all-rents/all-rents.component';
+import { VodafoneComponent } from './pages/user/vodafone/vodafone.component';
 
 @Component({
     selector: 'app-root',
@@ -49,8 +50,8 @@ import { AllRentsComponent } from './pages/owner/all-rents/all-rents.component';
       ApprovalStudentComponent,
       PendingStudentComponent,
       DetailsAdminComponent,
-      AllRentsComponent
-     
+      AllRentsComponent,
+      
     ],
     //providers:[provideHttpClient().withFetch()]
     

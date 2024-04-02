@@ -83,7 +83,6 @@ deletee(obj2:any){
   });
 }
 
-
 approval(obj:any): void {
   console.log(this.notApprovedAppartment)
   this._PlacesOwnerService.approvalRentByOwner(obj.id,obj.apartmentId).subscribe({

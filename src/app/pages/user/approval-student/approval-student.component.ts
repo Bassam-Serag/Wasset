@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { jwtDecode } from 'jwt-decode';
 import { PlacesOwnerService } from '../../../services/places-owner.service';
+import { PaymentService } from '../../../../../payment.service';
 @Component({
   selector: 'app-approval-student',
   standalone: true,
@@ -17,7 +18,7 @@ export class ApprovalStudentComponent {
   Places:any;
   userId:any;
   p:number=1;
-  constructor(private _PlacesOwnerService:PlacesOwnerService , private router: Router,private Actived : ActivatedRoute)
+  constructor(private _PlacesOwnerService:PlacesOwnerService , private router: Router,private Actived : ActivatedRoute,private _CardRequest:PaymentService)
   {
     this.getall()
     //this.userId = this.Actived.snapshot.params["id"];
@@ -76,5 +77,9 @@ export class ApprovalStudentComponent {
         });
       }
     });
+  }
+
+  makeRwq(){
+    this._CardRequest.CardRequest();
   }
 }
