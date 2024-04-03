@@ -1,55 +1,85 @@
-<br><br><br>
-<div class="container">
-  <div style="text-align: center;">
-    <a class="btn btn-outline-primary m-5 " routerLink="/allrents">All Rents</a>
-    <a class="btn btn-outline-primary" routerLink="/allrents">All Rents</a>
-
-  </div>
-
-  <table class="table table-hover border-2">
-    <thead class="table-dark">
-      <tr>
-        <th scope="col">Region</th>
-        <th scope="col">Price</th>
-        <th scope="col">Gender</th>
-        <th scope="col">Num of Room</th>
-         <!-- <th scope="col">img</th>  -->
-
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let p of Places | paginate: { itemsPerPage: 6, currentPage: p }" class="table-primary" appChengeColor>
-        <td>{{ p.region}}</td>
-        <td>{{ p.apartmentPrice }}</td>
-        <td>{{ p.genderOfStudents }}</td>
-        <td>{{ p.numofRoom }}</td>
-         <!-- <td>{{ p.images}}</td>  -->
-
-        <td>
-          <button type="button" class="btn btn-outline-info m-2"
-            [routerLink]="'/places/' + p.apartmentId"><i class="fas fa-info-circle"></i></button>
-
-          <button type="button" class="btn btn-outline-success m-2"
-            [routerLink]="'/updateplaces/' + p.apartmentId"><i class="fas fa-sync-alt"></i></button>
-          <button type="button" class="btn btn-outline-danger m-2" (click)="deleteplaces(p.apartmentId)"
-            routerLink="/places"><i class="fas fa-solid fa-trash"></i></button>
-          <!-- <button *ngIf="p.requestRent" type="button" class="btn btn-outline-secondary m-2" (click)="accept(p.id)">Accept</button> -->
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <a class="btn btn-outline-primary" routerLink="/addplaces">Add Places</a>
-  <div class="row">
-    <div class="col-lg-12 text-center">
-      <div class="pagination d-flex justify-content-center mt-5">
-        <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel="">
-        </pagination-controls>
+<br><br><br><br>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">All Rents</h5>
+          <p class="card-text">View all rented places.</p>
+          <a class="boxed-btn " style=" border-radius: 5px;" routerLink="/allrents">View</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Approval</h5>
+          <p class="card-text">Approve pending requests.</p>
+          <a class="boxed-btn " style=" border-radius: 5px;" routerLink="/approvalowner">Approve</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Pending</h5>
+          <p class="card-text">View pending requests.</p>
+          <a class="boxed-btn " style=" border-radius: 5px;" routerLink="/pendingowner">View</a>
+        </div>
       </div>
     </div>
   </div>
+
+  <hr>
+
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <h3 class="text-center mb-4">List of Places</h3>
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Region</th>
+            <th scope="col">Price</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Number of Rooms</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of Places | paginate: { itemsPerPage: 6, currentPage: p }" class="table-info">
+            <td>{{ p.region }}</td>
+            <td>{{ p.apartmentPrice }}</td>
+            <td>{{ p.genderOfStudents }}</td>
+            <td>{{ p.numofRoom }}</td>
+            <td>
+              <button type="button" class="btn btn-info m-1" [routerLink]="'/places/' + p.apartmentId">
+                <i class="fas fa-info-circle"></i>
+              </button>
+              <button type="button" class="btn btn-success m-1" [routerLink]="'/updateplaces/' + p.apartmentId">
+               
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button type="button" class="btn btn-danger" (click)="deleteplaces(p.apartmentId)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-lg-12 text-center">
+      <a class="boxed-btn ml-5 " style=" border-radius: 5px;" routerLink="/addplaces">Add Place</a>
+    </div>
+  </div>
 </div>
+
+
 <br><br><br>
 
 

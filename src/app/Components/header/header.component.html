@@ -34,7 +34,7 @@
 										<!-- *ngIf="!isLogin" -->
 										<a *ngIf="!isLogin" routerLink="/register" routerLinkActive="active" class="bordered-btn "style="height: 47px; border-radius: 5px;" >Register</a>
 										<!-- *ngIf="isLogin" -->
-										<a *ngIf="isLogin">Welcome: <b>({{userName}})</b></a>
+										<a *ngIf="isLogin">Welcome: <b>{{userName}}</b></a>
 										<a *ngIf="isLogin" (click)="logout()" class="boxed-btn " style="height: 47px; border-radius: 5px;">Logout</a>
 									</div>
 									

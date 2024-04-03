@@ -5,6 +5,7 @@ import { PlacesOwnerService } from '../../../services/places-owner.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { jwtDecode } from 'jwt-decode';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class PlacesComponent implements OnInit{
   p:number=1;
   constructor(private _PlacesOwnerService:PlacesOwnerService , private router: Router){ }
   ngOnInit(): void {
-    
+    this.getToken();
     this.getAllPlaces();
   }
   clickAddPlaces(){
@@ -63,8 +64,20 @@ export class PlacesComponent implements OnInit{
     });
 
   }
+  OwnerID:any;
+getToken(){
+  let token = localStorage.getItem('userToken');
+   if (token) {
+     const decodedToken: any = jwtDecode(token);
+     this.OwnerID =
+       decodedToken[
+         'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'
+       ];
+     }
+     console.log(this.OwnerID);
+  }
   getAllPlaces(){
-    this._PlacesOwnerService.getAllPlaces().subscribe({
+    this._PlacesOwnerService.getallappByOneowner(this.OwnerID).subscribe({
       next:(data:any)=>{
         this.Places = data;
 

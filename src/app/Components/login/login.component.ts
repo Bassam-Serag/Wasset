@@ -69,7 +69,7 @@ export class LoginComponent {
               }, 50);
             }
             else if (userType === 'Admin') {
-              this._Router.navigate(['/approval']);
+              this._Router.navigate(['/allpost']);
               setTimeout(() => {
                 window.location.reload();
               }, 50);

@@ -1,9 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PaymentService {
+  // constructor(private _http: HttpClient) {}
+  
+  // getApartmentPrice(apartmentId: string): Observable<number> {
+  //   // Assuming you have an API endpoint to fetch the price of the apartment
+   
+  //   return this._http.get<number>(`https://localhost:44301/api/Apartment/${apartmentId}/price`);
+  // }
   // First Step , I will Go To create Request To Make Authntication And get Token
   //Get Api Key From The Site
   Api: string =

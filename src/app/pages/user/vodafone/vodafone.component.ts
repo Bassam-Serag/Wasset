@@ -3,6 +3,8 @@ import { PaymentService } from '../../../../../payment.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+//import { app } from '../../../../../server';
+//import { app } from '../../../../../server';
 
 @Component({
   selector: 'app-vodafone',
@@ -17,16 +19,36 @@ export class VodafoneComponent {
   amount: any;
   pin: any;
   otp: any;
+  apartmentPrice:any;
+  app:any;
+ngOnInit(): void {
+  // this.paymentService.getApartmentPrice(this.app).subscribe(
+  //   (price: any) => {
+  //     this.apartmentPrice = price;
+  //   },
+  //   (error) => {
+  //     console.error('Error fetching apartment price:', error);
+  //   }
+  // );
+}
   submitPaymentForm(): void {
+   //console.log(this.app.apartmentId )
+   //console.log(this.app.apartmentPrice )
     // Implement your form submission logic here
     // For example, you can call a service method to process the payment
-    console.log('Form submitted!');
-    console.log('Wallet Number:', this.walletNumber);
-    console.log('Amount:', this.amount);
-    console.log('Pin:', this.pin);
-    console.log('OTP:', this.otp);
+    // console.log('Form submitted!');
+    // console.log('Wallet Number:', this.walletNumber);
+    // console.log('Amount:', this.amount);
+    // console.log('Pin:', this.pin);
+    // console.log('OTP:', this.otp);
   }
   VodafoneRequestt(): void {
+    // console.log(this.apartmentPrice)
+    // console.log(this.app)
+   
+
+
+
     Swal.fire({
       position: 'center',
       title: 'successful',

@@ -85,5 +85,24 @@ updatePlaces(apartmentId: any, Places: any) {
  delRentByOwner(idReq:any){
     return this.myClient.delete("https://localhost:44301/api/Request"+"/"+idReq);
    }
- 
+
+
+
+   getallappByOneowner(id:any){
+    return this.myClient.get("https://localhost:44301/api/Apartment/GetAllApartmentsOnwer"+"/"+id)
+   }
+
+   getallPendingByOneowner(id:any){
+    return this.myClient.get("https://localhost:44301/api/Apartment/GetAllPendingApartmentsOnwer"+"/"+id)
+   }
+   
+   getallApprovalByOneowner(id:any){
+    return this.myClient.get("https://localhost:44301/api/Apartment/GetAllApprovalApartmentsOnwer"+"/"+id)
+   }
+
+
+   getallApprovalAdmin(){
+    return this.myClient.get("https://localhost:44301/api/Apartment/GetAllApprovalApartments");
+  }
+   
 }

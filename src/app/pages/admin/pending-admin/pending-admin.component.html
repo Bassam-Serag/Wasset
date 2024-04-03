@@ -13,9 +13,7 @@
         <th scope="col">Price</th>
         <th scope="col">Gender</th>
         <th scope="col">Number of Room</th>
-        <th scope="col"></th>
-
-
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -24,8 +22,12 @@
         <td>{{ app.apartmentPrice }}</td>
         <td>{{ app.genderOfStudents }}</td>
         <td>{{ app.numofRoom }}</td>
-        <button type="button" class="btn btn-outline-info m-2"
-        [routerLink]="'/approval/'+ app.apartmentId">Details</button> 
+        <td class="d-flex gap-3">
+            <button type="button" class="btn btn-outline-info m-2"
+              [routerLink]="'/approval/'+ app.apartmentId">Details</button> 
+              <button class="btn btn-outline-primary m-2" [disabled]="app.status === 'approved'" (click)="approval(app.apartmentId)">Approval</button>
+            <button class="btn btn-outline-danger m-2" (click)="delete(app.apartmentId)">Reject</button>
+          </td>
       </tr>
     </tbody>
   </table>

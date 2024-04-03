@@ -3,11 +3,12 @@ import { PlacesOwnerService } from '../../../services/places-owner.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-details-places',
   standalone: true,
-  imports: [HttpClientModule,RouterModule,CommonModule],
+  imports: [HttpClientModule,RouterModule,CommonModule,CarouselModule],
   providers:[PlacesOwnerService],
 
   templateUrl: './details-places.component.html',
@@ -21,6 +22,23 @@ export class DetailsPlacesComponent {
     this.id = this.Actived.snapshot.params["id"];
 
    }
+   customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: false,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      }
+    },
+    nav: true
+  }
    ngOnInit(): void {
 
     this._PlacesOwnerService.getPlacesByID(this.id).subscribe({

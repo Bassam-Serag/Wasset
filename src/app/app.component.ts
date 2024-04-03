@@ -24,6 +24,9 @@ import { PendingStudentComponent } from './pages/user/pending-student/pending-st
 import { DetailsAdminComponent } from './pages/admin/details-admin/details-admin.component';
 import { AllRentsComponent } from './pages/owner/all-rents/all-rents.component';
 import { VodafoneComponent } from './pages/user/vodafone/vodafone.component';
+import { PendingOwnerComponent } from './pages/owner/pending-owner/pending-owner.component';
+import { ApprovalOwnerComponent } from './pages/owner/approval-owner/approval-owner.component';
+import { AllPostComponent } from './pages/admin/all-post/all-post.component';
 
 @Component({
     selector: 'app-root',
@@ -51,6 +54,9 @@ import { VodafoneComponent } from './pages/user/vodafone/vodafone.component';
       PendingStudentComponent,
       DetailsAdminComponent,
       AllRentsComponent,
+      PendingOwnerComponent,
+      ApprovalOwnerComponent,
+      AllPostComponent
       
     ],
     //providers:[provideHttpClient().withFetch()]
