@@ -17,8 +17,8 @@
       <form [formGroup]="register" (ngSubmit)="handleRegister(register)">
 
   <div class="form-group">
-    <label for="userName">Username</label>
-    <input class="form-control" type="text" name="userName" id="userName" placeholder="userName" required formControlName="userName"/>
+    <label for="userName">name</label>
+    <input class="form-control" type="text" name="userName" id="userName" placeholder="Name" required formControlName="userName"/>
 
     <div  *ngIf="register.get('userName')?.errors && register.get('userName')?.touched">
       <P class="errColor" *ngIf="register.get('userName')?.getError('required')">*Name Is Requrired</P>
@@ -94,12 +94,12 @@
     Register failed!<br />{{errMsg}}
 </div>
   <button class="btn btn--form" type="submit" (click)="register.markAllAsTouched()">Register
-      <div *ngIf="isLoading" class="loader">
+      <!-- <div *ngIf="isLoading" class="loader">
           <div class="loader-inner">
               <div class="circle"></div>
           </div>
           <span *ngIf="!isLoading" >Register</span>
-      </div>
+      </div> -->
   </button>
   <br>
     <a class="signup__link"routerLink="/login" routerLinkActive="active">I am already a member ?</a>
