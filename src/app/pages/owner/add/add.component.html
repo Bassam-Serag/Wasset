@@ -29,7 +29,7 @@
           <input type="text" class="form-control" id="NumofRoom" formControlName="NumofRoom">
           <div *ngIf="AddForm.controls.NumofRoom.invalid && AddForm.controls.NumofRoom.touched" class="text-danger">
             <span *ngIf="AddForm.controls.NumofRoom.errors?.['required']">Number of rooms is required</span>
-            <span *ngIf="AddForm.controls.NumofRoom.errors?.['min']">Number of rooms cannot be negative</span>
+            <span *ngIf="AddForm.controls.NumofRoom.errors?.['min']">Number of rooms cannot be negative or Zero</span>
             <span *ngIf="AddForm.controls.NumofRoom.errors?.['notNumber']">Number of rooms must be a number</span>
           </div>
         </div>
@@ -40,7 +40,7 @@
           <input type="text" class="form-control" id="ApartmentPrice" formControlName="ApartmentPrice">
           <div *ngIf="AddForm.controls.ApartmentPrice.invalid && AddForm.controls.ApartmentPrice.touched" class="text-danger">
             <span *ngIf="AddForm.controls.ApartmentPrice.errors?.['required']">ApartmentPrice is required</span>
-            <span *ngIf="AddForm.controls.ApartmentPrice.errors?.['min']">ApartmentPrice cannot be negative</span>
+            <span *ngIf="AddForm.controls.ApartmentPrice.errors?.['min']">ApartmentPrice cannot be negative or Zero</span>
             <span *ngIf="AddForm.controls.ApartmentPrice.errors?.['notNumber']">ApartmentPrice must be a number</span>
           </div>
       </div>
@@ -70,8 +70,9 @@
           <input type="text" class="form-control " id="Capacity" formControlName="Capacity">
           <div *ngIf="AddForm.controls.Capacity.invalid && AddForm.controls.Capacity.touched" class="text-danger">
             <span *ngIf="AddForm.controls.Capacity.errors?.['required']">Capacity is required</span>
-            <span *ngIf="AddForm.controls.Capacity.errors?.['min']">Capacity cannot be negative</span>
+            <span *ngIf="AddForm.controls.Capacity.errors?.['min']">Capacity cannot be negative or Zero</span>
             <span *ngIf="AddForm.controls.Capacity.errors?.['notNumber']">Capacity must be a number</span>
+
           </div>
         </div>
       </div> 

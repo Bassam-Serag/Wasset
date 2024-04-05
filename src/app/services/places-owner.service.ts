@@ -86,8 +86,6 @@ updatePlaces(apartmentId: any, Places: any) {
     return this.myClient.delete("https://localhost:44301/api/Request"+"/"+idReq);
    }
 
-
-
    getallappByOneowner(id:any){
     return this.myClient.get("https://localhost:44301/api/Apartment/GetAllApartmentsOnwer"+"/"+id)
    }
@@ -104,5 +102,7 @@ updatePlaces(apartmentId: any, Places: any) {
    getallApprovalAdmin(){
     return this.myClient.get("https://localhost:44301/api/Apartment/GetAllApprovalApartments");
   }
-   
+ contactuc(ob:any){
+  return this.myClient.post("https://localhost:44301/api/Mail/ContactUS",ob)
+ }  
 }

@@ -36,11 +36,11 @@ export class AddComponent {
     //id: new FormControl("", [Validators.required]),
     Description: new FormControl("", [Validators.required, Validators.maxLength(1000)]),
     Region: new FormControl("", [Validators.required, Validators.maxLength(100)]),
-    NumofRoom: new FormControl("", [Validators.required, Validators.min(0), this.numberOnlyValidator]),
-    ApartmentPrice: new FormControl("", [Validators.required, Validators.min(0), this.numberOnlyValidator]),
+    NumofRoom: new FormControl("", [Validators.required, Validators.min(1), this.numberOnlyValidator]),
+    ApartmentPrice: new FormControl("", [Validators.required, Validators.min(1), this.numberOnlyValidator]),
     GenderOfStudents: new FormControl("", [Validators.required]),
     Location: new FormControl("", [Validators.required, Validators.maxLength(100)]),
-    Capacity: new FormControl("", [Validators.required, Validators.min(0), this.numberOnlyValidator]),
+    Capacity: new FormControl("", [Validators.required, Validators.min(1), this.numberOnlyValidator]),
     //phone:new FormControl("", [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)] ),
     OwnerID: new FormControl("", [Validators.required]),
 
@@ -77,32 +77,8 @@ getUserIdFromToken(): void {
    }
   ngOnInit(): void {
     this.getUserIdFromToken();
-    // this._PlacesOwnerService.getAllPlaces().subscribe({
-    //   next:(data)=>{
-    //     this.Places = data;
-    //   },
-    //   error:(err)=>{
-    //     this.router.navigate(['/error',{errormessage : err.message as string}]);
-    //   }
-    // })
-    
-  }
-  // imageRequiredValidator(control: FormControl): { [key: string]: any } | null {
-  //   const value = control.value;
-  //   if (!value || value.length === 0) {
-  //     return { 'required': true };
-  //   }
-  //   return null;
-  // }
-  // checkID(){
-  //   this.contain =true;
 
-  //   for (const st of this.Places) {
-  //     if (st.id == this.AddForm.controls.id.value) {
-  //       this.contain = false;
-  //     }
-  //   }
-  // }
+  }
   numberOnlyValidator(control: FormControl): { [key: string]: any } | null {
     const value = control.value;
     if (isNaN(value)) {
@@ -113,7 +89,8 @@ getUserIdFromToken(): void {
 
   AddPlaces() {
     console.log("scvdcsad");
-    if (this.AddForm.valid) {
+    if (this.AddForm.valid) 
+    {
       const formData = new FormData();
       formData.append('Description', this.AddForm.controls.Description.value ?? '');
       formData.append('Region', this.AddForm.controls.Region.value ?? '');
@@ -130,27 +107,8 @@ getUserIdFromToken(): void {
           formData.append('images', images[i]);
         }
       }
-      // let newPlace = {
-      //  // id: this.AddForm.controls.id.value,
-      //   Description: this.AddForm.controls.Description.value,
-      //   Region:this.AddForm.controls.Region.value,
-      //   NumofRoom: this.AddForm.controls.NumofRoom.value,
-      //   ApartmentPrice: this.AddForm.controls.ApartmentPrice.value,
-      //   GenderOfStudents: this.AddForm.controls.GenderOfStudents.value,
-      //   Location:this.AddForm.controls.Location.value,
-      //   Capacity: this.AddForm.controls.Capacity.value,
-      //   //phone:this.AddForm.controls.phone.value ,
-      //   OwnerID:this.v,
-      //   //this.AddForm.get('OwnerID')?.setValue(this.userId);
-
-      //   images:this.AddForm.controls.images.value,
-      //   // isApproved:false,
-      //   // isRented:false,
-      //   // requestRent:false
-      // };
       console.log(formData);
       console.log(images)
-
       this._PlacesOwnerService.AddNewPlaces(formData).subscribe(() => {
         //this.router.navigate(['/places']);
         Swal.fire({
