@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -18,6 +18,13 @@ export class ApprovalStudentComponent {
   Places:any;
   userId:any;
   p:number=1;
+  
+  getprice(price:any){
+    this._PlacesOwnerService.price=price;
+    this.router.navigate(["/vodafone"]);
+    console.log(this._PlacesOwnerService.price);
+  }
+  
   constructor(private _PlacesOwnerService:PlacesOwnerService , private router: Router,private Actived : ActivatedRoute,private _CardRequest:PaymentService)
   {
     this.getall()
@@ -79,7 +86,8 @@ export class ApprovalStudentComponent {
     });
   }
 
-  makeRwq(){
+  makeRwq(price:any){
+    this._PlacesOwnerService.price=price;
     this._CardRequest.CardRequest();
   }
 }

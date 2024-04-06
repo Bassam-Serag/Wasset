@@ -15,14 +15,14 @@
         <tr *ngFor="let p of Places | paginate: { itemsPerPage: 5, currentPage: p }" class="table-info" appChengeColor>
             <td>{{p.region}}</td>
             <td>{{p.capacity}}</td>
-            <td>{{p.price}}</td>
+            <td>{{p.price}} EGP</td>
             <td>
              
-                <button type="button" class="btn btn-outline-info m-2" routerLink="/vodafone" routerLinkActive="active">
+                <button type="button" class="btn btn-outline-info m-2" (click)="getprice(p.price)">
                   <i class="fas fa-wallet"></i> Pay Now
                 </button>
                 
-              <button type="button" class="btn btn-outline-info m-2" (click)="makeRwq()">
+              <button type="button" class="btn btn-outline-info m-2" (click)="makeRwq(p.price)">
                 <i class="fas fa-credit-card"></i> Pay Now
             </button>  
             </td>

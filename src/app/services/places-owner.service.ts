@@ -75,6 +75,7 @@ updatePlaces(apartmentId: any, Places: any) {
   getAllApprovalStd(id :any){
     return this.myClient.get("https://localhost:44301/api/Request/GetAllApprovedRequestsPerStudent"+"/"+id);
    }
+   price:number=0;
 
    getAllPendingStd(id :any){
     return this.myClient.get("https://localhost:44301/api/Request/GetAllPendingRequestsPerStudent"+"/"+id);

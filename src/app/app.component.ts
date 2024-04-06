@@ -31,6 +31,8 @@ import { AppartmentRentedByStudentsComponent } from './pages/admin/appartment-re
 import { ListStudentsComponent } from './pages/admin/list-students/list-students.component';
 import { ListOwnerComponent } from './pages/admin/list-owner/list-owner.component';
 import { AppartmentByOwnerComponent } from './pages/admin/appartment-by-owner/appartment-by-owner.component';
+import { PlacesOwnerService } from './services/places-owner.service';
+import { PaymentService } from '../../payment.service';
 
 @Component({
     selector: 'app-root',
@@ -67,6 +69,8 @@ import { AppartmentByOwnerComponent } from './pages/admin/appartment-by-owner/ap
       AppartmentByOwnerComponent
       
     ],
+    providers:[PlacesOwnerService,PaymentService],
+    
     //providers:[provideHttpClient().withFetch()]
     
 })

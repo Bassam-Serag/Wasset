@@ -23,7 +23,7 @@
       <tr *ngFor="let app of notApprovedAppartment  | paginate: { itemsPerPage: 5, currentPage: p }" class="custom-table-row table-info">
         <td>{{ app.status}}</td>
         <td>{{ app.region }}</td>
-        <td>{{ app.price }}</td>
+        <td>{{ app.price }} EGP</td>
         <td>{{ app.gendre  }}</td>
         <td>{{ app.numOfRooms }}</td>
 

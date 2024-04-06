@@ -1,20 +1,19 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Input, input } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PlacesOwnerService } from './src/app/services/places-owner.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PaymentService {
-  // constructor(private _http: HttpClient) {}
-  
-  // getApartmentPrice(apartmentId: string): Observable<number> {
-  //   // Assuming you have an API endpoint to fetch the price of the apartment
-   
-  //   return this._http.get<number>(`https://localhost:44301/api/Apartment/${apartmentId}/price`);
-  // }
-  // First Step , I will Go To create Request To Make Authntication And get Token
-  //Get Api Key From The Site
+@Input()p:number=0;
+apartmentPrice:number=0;
+constructor(private _place:PlacesOwnerService) {
+  console.log(this._place.price)
+  this.apartmentPrice=this._place.price;
+}
+
   Api: string =
     'ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2T1RZNU1Ua3hMQ0p1WVcxbElqb2lhVzVwZEdsaGJDSjkueUp5UGhWS0dyUE5obGZmVVZhLWs1RjBJRXdiNlk5T01MNXFOdzExTWwxLWowQ1JsU2JYSWxSNkFUS2VGWVB4R2MzLU1XXzd2cWtwZkVvUVlSQVNqOFE=';
 
@@ -61,7 +60,7 @@ export class PaymentService {
   endAuthentication = async (id: string, tokenPath: string): Promise<void> => {
     let data3: {
       auth_token: string;
-      amount_cents: string;
+      amount_cents: number;
       expiration: number;
       order_id: string;
       billing_data: {
@@ -83,7 +82,7 @@ export class PaymentService {
       integration_id: number;
     } = {
       auth_token: tokenPath,
-      amount_cents: '600000',
+      amount_cents: this._place.price*100,
       expiration: 3600,
       order_id: id,
       billing_data: {
@@ -160,6 +159,7 @@ export class PaymentService {
     //Get id i will need it in the next step
     let id = send.id;
     console.log(id);
+    console.log(this._place.price)
     this.endVodafoneAuthntication(id, token);
   };
 
@@ -169,7 +169,7 @@ export class PaymentService {
   ): Promise<void> => {
     let data3 = {
       auth_token: tokenPath,
-      amount_cents: '600000',
+      amount_cents: this._place.price*100,
       expiration: 3600,
       order_id: id,
       billing_data: {

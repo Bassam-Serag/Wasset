@@ -3,6 +3,7 @@ import { PaymentService } from '../../../../../payment.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { PlacesOwnerService } from '../../../services/places-owner.service';
 //import { app } from '../../../../../server';
 //import { app } from '../../../../../server';
 
@@ -14,7 +15,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './vodafone.component.css',
 })
 export class VodafoneComponent {
-  constructor(private paymentService: PaymentService,private router: Router) {}
+  constructor(private paymentService: PaymentService,private router: Router,private _place:PlacesOwnerService) {}
   walletNumber: any;
   amount: any;
   pin: any;
@@ -22,6 +23,7 @@ export class VodafoneComponent {
   apartmentPrice:any;
   app:any;
 ngOnInit(): void {
+ this.apartmentPrice=this._place.price;
   // this.paymentService.getApartmentPrice(this.app).subscribe(
   //   (price: any) => {
   //     this.apartmentPrice = price;
@@ -43,6 +45,7 @@ ngOnInit(): void {
     // console.log('OTP:', this.otp);
   }
   VodafoneRequestt(): void {
+    
     // console.log(this.apartmentPrice)
     // console.log(this.app)
    
