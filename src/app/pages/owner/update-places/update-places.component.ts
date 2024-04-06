@@ -62,10 +62,10 @@ export class UpdatePlacesComponent {
     description: new FormControl(null, [Validators.required, Validators.maxLength(500)]),
     location: new FormControl("", [Validators.required, Validators.maxLength(100)]),
     region: new FormControl("", [Validators.required, Validators.maxLength(100)]),
-    apartmentPrice: new FormControl(null, [Validators.required, Validators.min(0), this.numberOnlyValidator]),
-    capacity: new FormControl(null, [Validators.required, Validators.min(0), this.numberOnlyValidator]),
+    apartmentPrice: new FormControl(null, [Validators.required, Validators.min(1), this.numberOnlyValidator]),
+    capacity: new FormControl(null, [Validators.required, Validators.min(1), this.numberOnlyValidator]),
     genderOfStudents: new FormControl(null, [Validators.required]),
-    numofRoom: new FormControl(null, [Validators.required, Validators.min(0), this.numberOnlyValidator]),
+    numofRoom: new FormControl(null, [Validators.required, Validators.min(1), this.numberOnlyValidator]),
     // phone:new FormControl("", [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)] ),
     // img: new FormControl("", [Validators.required, this.imageRequiredValidator])
 

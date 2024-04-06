@@ -17,6 +17,11 @@ export class ApprovalComponent implements OnInit {
     private _PlacesOwnerService: PlacesOwnerService,
     private router: Router
   ) {}
+  // sidebarOpen = false;
+
+  // toggleSidebar() {
+  //   this.sidebarOpen = !this.sidebarOpen;
+  // }
   p: number = 1;
   notApprovedAppartment: any;
   getAllPlaces() {

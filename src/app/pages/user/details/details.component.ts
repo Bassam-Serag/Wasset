@@ -102,7 +102,8 @@ export class DetailsComponent implements OnInit {
               icon: "success"
             });
           },
-          error: (err) => {
+          error: (err) => 
+          {
             Swal.fire({
               title: "Error!",
               text: err.error,

@@ -30,6 +30,47 @@ export class PlacesComponent implements OnInit{
     this.router.navigate(['/addplaces']);
   }
 
+  // deleteplaces(id: any): void {
+  //   Swal.fire({
+  //     title: "Are you sure?",
+  //     text: "You won't be able to revert this!",
+  //     icon: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: "#3085d6",
+  //     cancelButtonColor: "#d33",
+  //     confirmButtonText: "Yes, delete it!"
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       this._PlacesOwnerService.deletePlaces(id).subscribe(() => {
+  //         Swal.fire({
+  //           title: "Deleted!",
+  //           text: "Your Place has been deleted.",
+  //           icon: "success"
+            
+  //         }).then(() => {
+  //           this.getAllPlaces();
+  //           //this.accept(id);
+  //         //    this._PlacesOwnerService.getAllPlaces().subscribe((data) => {
+  //         //   this.Places = data;
+  //         // });
+  //         // setTimeout(() => {
+  //         //   window.location.reload();
+  //         // }, 50);
+  //         // this.getAllPlaces();
+  //         // error: (err) => 
+  //         //   {
+  //         //     Swal.fire({
+  //         //       title: "Error!",
+  //         //       text: err.error,
+  //         //       icon: "error"
+  //         //     });
+  //         //   }
+  //         });
+  //       });
+  //     }
+  //   });
+
+  // }
   deleteplaces(id: any): void {
     Swal.fire({
       title: "Are you sure?",
@@ -46,24 +87,22 @@ export class PlacesComponent implements OnInit{
             title: "Deleted!",
             text: "Your Place has been deleted.",
             icon: "success"
-            
           }).then(() => {
             this.getAllPlaces();
-            //this.accept(id);
-          //    this._PlacesOwnerService.getAllPlaces().subscribe((data) => {
-          //   this.Places = data;
-          // });
-          // setTimeout(() => {
-          //   window.location.reload();
-          // }, 50);
-          // this.getAllPlaces();
-            
+          });
+        },
+        (error) => {
+          Swal.fire({
+            title: "Error!",
+            text: error.error,
+            icon: "error"
           });
         });
       }
     });
-
   }
+  
+  
   OwnerID:any;
 getToken(){
   let token = localStorage.getItem('userToken');

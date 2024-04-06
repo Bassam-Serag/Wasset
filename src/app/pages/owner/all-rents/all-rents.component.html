@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let app of notApprovedAppartment  | paginate: { itemsPerPage: 6, currentPage: p }" class="custom-table-row table-info">
+      <tr *ngFor="let app of notApprovedAppartment  | paginate: { itemsPerPage: 5, currentPage: p }" class="custom-table-row table-info">
         <td>{{ app.status}}</td>
         <td>{{ app.region }}</td>
         <td>{{ app.price }}</td>
@@ -30,7 +30,7 @@
         <!-- <td><img [src]="app.img" alt="" width="150px" height="100px"></td> -->
         <td class="d-flex gap-3">
           <button class="btn btn-outline-primary m-2" [disabled]="app.status === 'approved'" (click)="approval(app)">Approval</button>
-          <button class="btn btn-outline-danger m-2" (click)="deletee(app.id)">Reject</button>
+          <button class="btn btn-outline-danger m-2" [disabled]="app.status === 'approved'" (click)="deletee(app.id)">Reject</button>
         </td>
       </tr>
     </tbody>

@@ -26,6 +26,10 @@ import { PendingOwnerComponent } from './pages/owner/pending-owner/pending-owner
 import { ApprovalOwnerComponent } from './pages/owner/approval-owner/approval-owner.component';
 import { AllPostComponent } from './pages/admin/all-post/all-post.component';
 import { PendingAdminComponent } from './pages/admin/pending-admin/pending-admin.component';
+import { AppartmentRentedByStudentsComponent } from './pages/admin/appartment-rented-by-students/appartment-rented-by-students.component';
+import { ListStudentsComponent } from './pages/admin/list-students/list-students.component';
+import { ListOwnerComponent } from './pages/admin/list-owner/list-owner.component';
+import { AppartmentByOwnerComponent } from './pages/admin/appartment-by-owner/appartment-by-owner.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"register",pathMatch:"full"},
@@ -54,8 +58,26 @@ export const routes: Routes = [
     { path: 'allpost',canActivate:[authGuard], component: AllPostComponent },
     { path: 'pendingadmin',canActivate:[authGuard], component: PendingAdminComponent },
 
-
-
+    {
+        path: 'students',
+        canActivate: [authGuard],
+        component: ListStudentsComponent,
+      },
+      {
+        path: 'appartmentrentedbystudent/:id',
+        canActivate: [authGuard],
+        component: AppartmentRentedByStudentsComponent,
+      },
+      {
+        path: 'listowner',
+        canActivate: [authGuard],
+        component: ListOwnerComponent,
+      },
+      {
+        path: 'appartmentbyowner/:id',
+        canActivate: [authGuard],
+        component: AppartmentByOwnerComponent,
+      },
 
 
     {path:"**",component:ErrorComponent}

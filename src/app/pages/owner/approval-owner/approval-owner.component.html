@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let app of notApprovedAppartment  | paginate: { itemsPerPage: 6, currentPage: p }" class="custom-table-row table-info">
+      <tr *ngFor="let app of notApprovedAppartment  | paginate: { itemsPerPage: 5, currentPage: p }" class="custom-table-row table-info">
        
         <td>{{ app.region }}</td>
         <td>{{ app.apartmentPrice }}</td>

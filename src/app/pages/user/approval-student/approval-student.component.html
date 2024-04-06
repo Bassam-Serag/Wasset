@@ -12,7 +12,7 @@
     </thead>
 
     <tbody>
-        <tr *ngFor="let p of Places | paginate: { itemsPerPage: 6, currentPage: p }" class="table-info" appChengeColor>
+        <tr *ngFor="let p of Places | paginate: { itemsPerPage: 5, currentPage: p }" class="table-info" appChengeColor>
             <td>{{p.region}}</td>
             <td>{{p.capacity}}</td>
             <td>{{p.price}}</td>

@@ -105,4 +105,37 @@ updatePlaces(apartmentId: any, Places: any) {
  contactuc(ob:any){
   return this.myClient.post("https://localhost:44301/api/Mail/ContactUS",ob)
  }  
+
+
+
+
+
+ getallAppartmentRentedByStudent(id: any) {
+  return this.myClient.get(
+    `https://localhost:44301/api/Apartment/GetAllApartmentsRentedByStudent/${id}`
+  );
 }
+
+getAllStudents() {
+  return this.myClient.get('https://localhost:44301/api/Student');
+}
+getAllOwner() {
+  return this.myClient.get('https://localhost:44301/api/Owner/AllOwners');
+}
+
+getallAppartmenByOwner(id: any) {
+  return this.myClient.get(
+    `https://localhost:44301/api/Owner/GetAllApartmentsOnwer/${id}`
+  );
+}
+deleteStudent(id:any){
+  return this.myClient.delete("https://localhost:44301/api/Student"+"/"+id);
+}
+deleteOwner(id:any){
+  return this.myClient.delete("https://localhost:44301/api/Owner"+"/"+id);
+}
+
+}
+
+
+

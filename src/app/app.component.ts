@@ -27,6 +27,10 @@ import { VodafoneComponent } from './pages/user/vodafone/vodafone.component';
 import { PendingOwnerComponent } from './pages/owner/pending-owner/pending-owner.component';
 import { ApprovalOwnerComponent } from './pages/owner/approval-owner/approval-owner.component';
 import { AllPostComponent } from './pages/admin/all-post/all-post.component';
+import { AppartmentRentedByStudentsComponent } from './pages/admin/appartment-rented-by-students/appartment-rented-by-students.component';
+import { ListStudentsComponent } from './pages/admin/list-students/list-students.component';
+import { ListOwnerComponent } from './pages/admin/list-owner/list-owner.component';
+import { AppartmentByOwnerComponent } from './pages/admin/appartment-by-owner/appartment-by-owner.component';
 
 @Component({
     selector: 'app-root',
@@ -56,7 +60,11 @@ import { AllPostComponent } from './pages/admin/all-post/all-post.component';
       AllRentsComponent,
       PendingOwnerComponent,
       ApprovalOwnerComponent,
-      AllPostComponent
+      AllPostComponent,
+      AppartmentRentedByStudentsComponent,
+      ListStudentsComponent,
+      ListOwnerComponent,
+      AppartmentByOwnerComponent
       
     ],
     //providers:[provideHttpClient().withFetch()]
