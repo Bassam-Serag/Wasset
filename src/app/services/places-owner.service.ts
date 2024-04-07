@@ -94,7 +94,9 @@ updatePlaces(apartmentId: any, Places: any) {
    getallPendingByOneowner(id:any){
     return this.myClient.get("https://localhost:44301/api/Apartment/GetAllPendingApartmentsOnwer"+"/"+id)
    }
-   
+   getallRejectByOneowner(id:any){
+    return this.myClient.get("   https://localhost:44301/api/Apartment/GetAllRejectedApartmentsOnwer"+"/"+id)
+   }
    getallApprovalByOneowner(id:any){
     return this.myClient.get("https://localhost:44301/api/Apartment/GetAllApprovalApartmentsOnwer"+"/"+id)
    }
@@ -135,6 +137,18 @@ deleteStudent(id:any){
 deleteOwner(id:any){
   return this.myClient.delete("https://localhost:44301/api/Owner"+"/"+id);
 }
+
+
+getallMale(){
+  return this.myClient.get("https://localhost:44301/api/Apartment/GetAllMaleApprovalApartments");
+}
+getallFemale(){
+  return this.myClient.get("https://localhost:44301/api/Apartment/GetAllFemaleApprovalApartments");
+}
+getreject(id:any,msg:any){
+  return this.myClient.get("https://localhost:44301/api/ApprovalStatus/Reject"+"/"+id+"/"+msg);
+}
+
 
 }
 

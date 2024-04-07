@@ -75,29 +75,28 @@ export class PendingAdminComponent {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, reject it!",
+      input: 'text',
+      inputValidator: (value) => {
+        if (!value) {
+          return 'Reason for rejection is required!';
+        }
+        return null; // Return null if validation passes without any errors
+      }
     }).then((result) => {
       if (result.isConfirmed) {
-        this._PlacesOwnerService.deletePlaces(id).subscribe(() => {
+        const reason = result.value; // Retrieve the entered reason
+        this._PlacesOwnerService.getreject(id, reason).subscribe(() => {
           Swal.fire({
-            title: "Deleted!",
-            text: "Your Place has been deleted.",
+            title: "Rejected!",
+            text: "Your Place has been rejected.",
             icon: "success"
-            
           }).then(() => {
             this.getAllPlaces();
-            //this.accept(id);
-          //    this._PlacesOwnerService.getAllPlaces().subscribe((data) => {
-          //   this.Places = data;
-          // });
-          // setTimeout(() => {
-          //   window.location.reload();
-          // }, 50);
-          // this.getAllPlaces();
-            
           });
         });
       }
     });
   }
+  
 }

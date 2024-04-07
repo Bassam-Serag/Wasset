@@ -120,7 +120,7 @@ getToken(){
       next:(data:any)=>{
         this.Places = data;
 
-        //console.log(this.Places)
+        console.log(this.Places)
         //.filter((c:any)=>c.isRented==false)
       },
       error:(err)=>{

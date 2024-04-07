@@ -48,12 +48,17 @@
       <div class="form-group row">
         <label for="gender" class="col-sm-2 col-form-label">Gender</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="GenderOfStudents" formControlName="GenderOfStudents">
+          <select class="form-control" id="GenderOfStudents" formControlName="GenderOfStudents">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
           <div *ngIf="AddForm.controls.GenderOfStudents.invalid && AddForm.controls.GenderOfStudents.touched" class="text-danger">
-            <span *ngIf="AddForm.controls.GenderOfStudents.errors?.['required']">GenderOfStudents is required</span>
+            <span *ngIf="AddForm.controls.GenderOfStudents.errors?.['required']">Gender is required</span>
           </div>
         </div>
       </div>
+      
       <div class="form-group row">
         <label for="Location" class="col-sm-2 col-form-label">Location</label>
         <div class="col-sm-10">

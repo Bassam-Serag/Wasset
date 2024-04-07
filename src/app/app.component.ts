@@ -33,6 +33,9 @@ import { ListOwnerComponent } from './pages/admin/list-owner/list-owner.componen
 import { AppartmentByOwnerComponent } from './pages/admin/appartment-by-owner/appartment-by-owner.component';
 import { PlacesOwnerService } from './services/places-owner.service';
 import { PaymentService } from '../../payment.service';
+import { HousingMaleComponent } from './pages/user/housing-male/housing-male.component';
+import { HousingFemaleComponent } from './pages/user/housing-female/housing-female.component';
+import { RejectOwnerComponent } from './pages/owner/reject-owner/reject-owner.component';
 
 @Component({
     selector: 'app-root',
@@ -66,7 +69,10 @@ import { PaymentService } from '../../payment.service';
       AppartmentRentedByStudentsComponent,
       ListStudentsComponent,
       ListOwnerComponent,
-      AppartmentByOwnerComponent
+      AppartmentByOwnerComponent,
+      HousingMaleComponent,
+      HousingFemaleComponent,
+      RejectOwnerComponent
       
     ],
     providers:[PlacesOwnerService,PaymentService],

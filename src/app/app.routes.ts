@@ -30,6 +30,9 @@ import { AppartmentRentedByStudentsComponent } from './pages/admin/appartment-re
 import { ListStudentsComponent } from './pages/admin/list-students/list-students.component';
 import { ListOwnerComponent } from './pages/admin/list-owner/list-owner.component';
 import { AppartmentByOwnerComponent } from './pages/admin/appartment-by-owner/appartment-by-owner.component';
+import { HousingMaleComponent } from './pages/user/housing-male/housing-male.component';
+import { HousingFemaleComponent } from './pages/user/housing-female/housing-female.component';
+import { RejectOwnerComponent } from './pages/owner/reject-owner/reject-owner.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"register",pathMatch:"full"},
@@ -57,6 +60,11 @@ export const routes: Routes = [
     { path: 'approvalowner',canActivate:[authGuard], component: ApprovalOwnerComponent },
     { path: 'allpost',canActivate:[authGuard], component: AllPostComponent },
     { path: 'pendingadmin',canActivate:[authGuard], component: PendingAdminComponent },
+    { path: 'housingmale',canActivate:[authGuard], component: HousingMaleComponent },
+    { path: 'housingfemale',canActivate:[authGuard], component: HousingFemaleComponent },
+    { path: 'reject',canActivate:[authGuard], component: RejectOwnerComponent },
+
+
 
     {
         path: 'students',

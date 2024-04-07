@@ -20,17 +20,17 @@ import { NgxPaginationModule } from 'ngx-pagination';
 })
 
 export class HousingComponent implements OnInit {
-  constructor(private ownerService:PlacesOwnerService , private activatedRoute :ActivatedRoute , private router:Router, private routerService:Router) {}
+  constructor(private ownerService:PlacesOwnerService , private activatedRoute :ActivatedRoute , private router:Router) {}
  
- /*
-
-
-*/
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.getAllPlaces();
     //this.loadSearch();
     // this.filteration();
+  }
+  activeButton: string = ''; // Variable to track the active button
+  isActive(route: string): boolean {
+    return this.router.isActive(route, true);
   }
   appartment:any;
   p:number=1

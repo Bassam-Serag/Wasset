@@ -1845,12 +1845,22 @@ a.video-play-btn {
 }
 
 .team-bg-3 {
-  background-image: url(../img/team/1.jpg);
+  background-image: url(../img/team/3.jpg);
   background-size: cover; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .team-bg-3:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.team-bg-4 {
+  background-image: url(../img/team/4.jpg);
+  background-size: cover; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-bg-4:hover {
   transform: scale(1.05); 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }

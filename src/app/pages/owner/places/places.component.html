@@ -1,7 +1,7 @@
 <br><br><br><br>
 <div class="container mt-4">
   <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">All Rents</h5>
@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Approval</h5>
@@ -19,12 +19,21 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">Pending</h5>
           <p class="card-text">View pending requests.</p>
           <a class="boxed-btn " style=" border-radius: 5px;" routerLink="/pendingowner">View</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Rejected</h5>
+          <p class="card-text">View all Rejected places.</p>
+          <a class="boxed-btn " style=" border-radius: 5px;" routerLink="/reject">View</a>
         </div>
       </div>
     </div>
@@ -42,6 +51,7 @@
             <th scope="col">Price</th>
             <th scope="col">Gender</th>
             <th scope="col">Number of Rooms</th>
+            <th scope="col">Status</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -51,6 +61,7 @@
             <td>{{ p.apartmentPrice }} EGP</td>
             <td>{{ p.genderOfStudents }}</td>
             <td>{{ p.numofRoom }}</td>
+            <td>{{ p.status }}</td>
             <td>
               <button type="button" class="btn btn-info m-1" [routerLink]="'/places/' + p.apartmentId">
                 <i class="fas fa-info-circle"></i>

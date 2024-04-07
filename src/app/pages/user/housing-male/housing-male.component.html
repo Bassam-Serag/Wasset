@@ -21,17 +21,16 @@
             <div class="col-md-12">
                 <div class="product-filters">
                     <ul>
-                        <li style="background-color: #016A70; border: #016A70;" [ngClass]="{'active-link': isActive('/hosing'), 'clicked': activeButton === 'All' }">
-                            <a  (click)="activeButton = 'All'" routerLink="/hosing" style="color: black;">All</a>
+                        <li [ngClass]="{'active-link': isActive('/hosing'), 'clicked': activeButton === 'All' }">
+                            <a (click)="activeButton = 'All'" routerLink="/hosing" style="color: black;">All</a>
                           </li>
-                          <li [ngClass]="{'active-link': isActive('/housingmale'), 'clicked': activeButton === 'Male' }">
+                          <li style="background-color: #016A70; border: #016A70;" [ngClass]="{'active-link': isActive('/housingmale'), 'clicked': activeButton === 'Male' }">
                             <a (click)="activeButton = 'Male'" routerLink="/housingmale" style="color: black;">Male</a>
                           </li>
                           <li [ngClass]="{'active-link': isActive('/housingfemale'), 'clicked': activeButton === 'Female' }">
                             <a (click)="activeButton = 'Female'" routerLink="/housingfemale" style="color: black;">Female</a>
                           </li>
                           
-
                         <!-- <div class="search-bar-tablecell">
                             <input type="text" placeholder="Male/Female" #ser style="background-color: rgb(96, 96, 117);">
                         </div> -->
