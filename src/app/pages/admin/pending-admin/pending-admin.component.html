@@ -26,9 +26,8 @@
     <div class="col-md-9 p-5">
       <div class="container">
         <h3 class="text-center mb-4">List of Pending</h3>
-        <hr>
-        <table class="table table-dark">
-          <thead>
+        <table class="table table-dark table-striped table-hover ">
+          <thead class="thead-dark">
             <tr>
               <th scope="col">Region</th>
               <th scope="col">Price</th>
@@ -49,24 +48,28 @@
               <td>{{ app.apartmentPrice }} EGP</td>
               <td>{{ app.genderOfStudents }}</td>
               <td>{{ app.numofRoom }}</td>
-              <button
-                type="button"
-                class="btn btn-outline-info m-2"
-                [routerLink]="'/approval/' + app.apartmentId"
-              >
-                Details
-              </button>
+            <td>
               <button
               type="button"
-              class="btn btn-outline-success m-2"
-              (click)="approval(app.apartmentId)"
+              class="btn btn-outline-info m-2"
+              [routerLink]="'/approval/' + app.apartmentId"
             >
-              Approval
+              Details
             </button>
-            <button type="button" class="btn btn-danger" (click)="delete(app.apartmentId)">
-              Reject
-            </button>
-            </tr>
+            <button
+            type="button"
+            class="btn btn-outline-success m-2"
+            (click)="approval(app.apartmentId)"
+          >
+            Approval
+          </button>
+          <button type="button" class="btn btn-outline-danger" (click)="delete(app.apartmentId)">
+            Reject
+          </button>
+            </td>
+              
+          </tr>
+         
           </tbody>
         </table>
         <button type="button" class="boxed-btn">

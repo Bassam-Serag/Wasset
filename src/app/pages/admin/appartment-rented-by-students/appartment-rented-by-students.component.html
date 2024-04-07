@@ -25,11 +25,11 @@
     <!-- Content -->
     <div class="col-md-9 p-5">
       <div class="container">
-        <h3 class="text-center mb-4">List of Appartment os student</h3>
-        <hr>
-        <table class="table table-dark table-striped" *ngIf="places">
+        <h3 class="text-center mb-4">List of Appartment of student</h3>
+ 
+        <table class="table table-dark table-striped table-hover" *ngIf="places">
 
-          <thead>
+          <thead class="thead-dark">
             <tr>
               <th scope="col">Price</th>
               <th scope="col">Gender</th>
@@ -44,9 +44,11 @@
               <td>{{ place.genderOfStudents }}</td>
               <td>{{ place.location }}</td>
               <td>{{ place.numofRoom }}</td>
-              <button type="button" class="btn btn-outline-info m-2" [routerLink]="'/approval/' + place.apartmentId">
-                Details
-              </button>
+<td>
+  <button type="button" class="btn btn-outline-info m-2" [routerLink]="'/approval/' + place.apartmentId">
+    Details
+  </button>
+</td>
             </tr>
           </tbody>
         </table>

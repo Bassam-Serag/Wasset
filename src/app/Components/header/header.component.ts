@@ -19,6 +19,8 @@ import { jwtDecode } from 'jwt-decode';
 export class HeaderComponent {
   isLogin: boolean = false;
   isStd: boolean = false;
+  isadmin: boolean = false;
+
   userName :any;
 
   //userName: string = '';
@@ -51,6 +53,9 @@ export class HeaderComponent {
         if (userType === 'student'){
             this.isStd=true;
         }
+        if (userType === 'Admin'){
+          this.isadmin=true;
+      }
     if (token !== null) {
       this.isLogin = true;
       //window.location.reload();
