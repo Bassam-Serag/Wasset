@@ -1,5 +1,34 @@
-# Project
+# Wasset Website
+- Responsive Website Using HTML, CSS, Bootstrap, JavaScript,Typescript and Angular
+- Developed first with the Mobile First methodology, then for desktop.
+- Compatible with all mobile devices and with a beautiful and pleasant user interface.
 
+## [Website Demo](https://wasset-one.vercel.app/home)
+
+![image](https://github.com/Bassam-Serag/Wasset/assets/105117034/2bc919ee-3fe6-48ef-825f-77a33cc1b293)
+
+
+### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
+
+
+### Run Locally
+
+To run **Wasset Website** locally, run this command on your git bash:
+
+Linux and macOS:
+
+```bash
+sudo git clone https://github.com/Bassam-Serag/Wasset.git
+```
+Windows:
+
+```bash
+git clone https://github.com/Bassam-Serag/Wasset.git
+```
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
 
 ## Development server
