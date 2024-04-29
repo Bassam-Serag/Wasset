@@ -39,7 +39,7 @@ a,
   color: #fff;
 }
 .signup__thumbnail {
-  height: 800px;
+  height: 890px;
   position: relative;
   padding: 2rem;
   display: flex;
@@ -80,7 +80,7 @@ h2 {
 }
 .signup__form {
   color: white;
-  height:800px;
+  height:890px;
   padding: 2.5rem;
   background: rgba(1, 106, 112, 0.5)
 }

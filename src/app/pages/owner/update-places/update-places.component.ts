@@ -108,7 +108,10 @@ export class UpdatePlacesComponent {
           Swal.fire({
             title: "Success!",
             text: "Place updated successfully.",
-            icon: "success"
+            imageUrl: "https://www.masrtimes.com/UploadCache/libfiles/39/3/600x338o/811.jpg",
+            imageWidth: 400,
+            imageHeight: 300,
+            imageAlt: "Custom image"
           }).then(() => {
             //this._PlacesOwnerService.getAllPlaces();
             this.router.navigate(['/places']);

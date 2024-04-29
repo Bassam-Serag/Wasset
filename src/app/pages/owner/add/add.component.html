@@ -84,7 +84,7 @@
 
 
       <div class="form-group row">
-      <label for="images" class="col-sm-2 col-form-label w-25 h-25">imagess</label>
+      <label for="images" class="col-sm-2 col-form-label w-25 h-25">images</label>
       <div class="col-sm-10">
         <input type="file" (change)="onFileSelected($event)" formControlName="images" accept="image/*" multiple>
         <div class="text-danger" *ngIf="AddForm.controls.images.invalid && AddForm.controls.images.touched">

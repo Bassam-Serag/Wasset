@@ -32,6 +32,7 @@ export class AllPostComponent {
     });
   }
 
+  
   delete(id: any) {
     Swal.fire({
       title: 'Are you sure?',

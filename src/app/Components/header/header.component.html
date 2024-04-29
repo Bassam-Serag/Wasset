@@ -17,7 +17,7 @@
 						<nav class="main-menu ">
 							<ul>
 								<!--*ngIf="isLogin"  -->
-								<li *ngIf="isLogin && isStd" ><a  routerLink="/home" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" class="current-list-item"  >Home</a>
+								<li *ngIf=" isStd" ><a  routerLink="/home" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" class="current-list-item"  >Home</a>
 
                                 </li>
 								<!--*ngIf="isLogin"  -->
@@ -25,10 +25,10 @@
 								<!--*ngIf="isLogin"  -->
 								<li *ngIf="isLogin && isStd" ><a  routerLink="/about" routerLinkActive="active" >About</a></li>
 								<!--*ngIf="isLogin"  -->
-								<li *ngIf="isLogin && !isStd && !isadmin " ><a  routerLink="/places" routerLinkActive="active" >Home</a></li>
+								<li *ngIf=" !isStd && !isadmin " ><a  routerLink="/places" routerLinkActive="active" >Home</a></li>
 
 								<li *ngIf="isLogin && !isadmin"  ><a  routerLink="/contact" routerLinkActive="active" >Contact</a></li>
-								<li *ngIf="isLogin && isStd" ><a  routerLink="/dashboard" routerLinkActive="active" >Requst</a></li>
+								<li *ngIf="isLogin && isStd" ><a  routerLink="/dashboard" routerLinkActive="active" >Request</a></li>
 								<li>
 									
 									<div class="header-icons ">

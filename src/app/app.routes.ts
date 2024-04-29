@@ -35,8 +35,8 @@ import { HousingFemaleComponent } from './pages/user/housing-female/housing-fema
 import { RejectOwnerComponent } from './pages/owner/reject-owner/reject-owner.component';
 
 export const routes: Routes = [
-    {path:"",redirectTo:"register",pathMatch:"full"},
-    {path:"home",canActivate:[authGuard] ,component:HomeComponent},//
+    {path:"",redirectTo:"home",pathMatch:"full"},
+    {path:"home",component:HomeComponent},//
     {path:"about",canActivate:[authGuard] ,component:AboutComponent},//
     {path:"contact",canActivate:[authGuard] ,component:ContactComponent},//
     {path:"hosing",canActivate:[authGuard] ,component:HousingComponent},//
